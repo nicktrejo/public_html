@@ -150,6 +150,21 @@
 				     "Miki Nakatani",
                      "Hiroyuki Sanada"
                   ]
-			   }			   
+			   }	
+			   			  {
+               "titulo": "El Aro2",
+               "sigla": "aro",
+               "poster": "imagenJSON/EC.jpg",
+               "director": "Hideo Nakata",
+               "precio": "6.99",
+               "genero": "Terror",
+               "anno": "2014",
+               "formato": "DVD",
+               "actores": [
+                     "Nanako Matsushima",
+				     "Miki Nakatani",
+                     "Hiroyuki Sanada"
+                  ]
+			   }		   
 		]
 }
