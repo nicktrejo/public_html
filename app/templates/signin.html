@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+<!--Titulo para cada página-->
+{% block title %}
+	Registraci&oacute;n
+{% endblock%}
+
+<!--Contenido propio de la página entre las llaves-->
+{% block content %}
+	<div class="bloquepeli">
+		<div class="cabecera">
+			<div>
+				<img src="../imagenes/usuario.png" class="topimg" alt="Carrito"/>
+			</div>
+			<br>
+			<br>
+			<h1>REGISTRACI&Oacute;N</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+		<div class="contenido">
+			<form>
+				<fieldset>
+					<legend> <b> Persona </b> </legend>
+					<div id="iconousuario">
+						<img src="../imagenes/usuarioupload.png" class="iconousuario" alt="Usuario"><br>
+						<input type="file" name="pic" id="pic">
+					</div>
+
+					<label for="nombre">Nombre</label>
+					<input type="text" name="nombre" placeholder="Pepe" id="nombre"><br>
+
+					<label for="apellido">Apellido</label>
+					<input type="text" name="apellido" placeholder="Gonzalez" id="apellido"><br>
+					
+					<label for="email">Email</label>
+					<input type="text" name="email" placeholder="pepe@mail.com" id="email"><br>
+
+					<label for="email2">Tel&eacute;fono</label>
+					<input type="text" name="email2" placeholder="pepe@mail.com" id="email2"><br>
+
+					<label for="fechanacimiento">Fecha de nacimiento</label>
+					<input type="date" name="fechanacimiento" id="fechanacimiento"><br>
+
+					<label for="contrasena">Contrase&#241;a</label>
+					<input type="password" name="contrasena" placeholder="********" id="contrasena"><br>
+
+					<label for="contrasena2">Email</label>
+					<input type="password" name="contrasena2" placeholder="********" id="contrasena2"><br>
+				</fieldset>
+
+				<fieldset>
+					<legend> <b> Preferencias </b> </legend>
+					<b>Seleccione sus preferencias:</b><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="Accion"> <label>Acción y aventuras</label><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="Animación"> <label>Animación</label><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="ficción"> <label>Ciencia ficción y fantasía</label><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="familiar"> <label>Cine familiar</label><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="Comedia"> <label>Comedia</label><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="Documentales"> <label>Documentales</label><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="Drama"> <label>Drama</label><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="Romantice"> <label>Romantice</label><br>
+					<input type="checkbox" name="preferencias" value="preferencias" id="Terror"> <label>Terror</label><br>
+				</fieldset>
+
+				<fieldset>
+					<legend> <b> Domicilio </b> </legend>
+					<label for="calle">Calle</label>
+					<input type="text" name="calle" placeholder="de la Castellana" id="calle">><br>
+
+					<label for="altura">Numero</label>
+					<input type="number" name="altura" placeholder="123" id="altura"><br>
+
+					<label for="piso">Piso</label>
+					<input type="number" name="piso" placeholder="3" id="piso"><br>
+
+					<label for="codigopostal">Codigo Postal</label>
+					<input type="number" name="codigopostal" placeholder="78001" id="codigopostal"><br>
+
+					<label for="provincia">Provincia</label>
+					<select name="provincia" id="provincia">
+						<option value="">Seleccione...</option>
+						<option value="AL">Albacete</option>
+						<option value="AS">Asturias</option>
+						<option value="AV">Avila</option>
+						<option value="BA">Barcelona</option>
+						<option value="BU">Burgos</option>
+						<option value="CA">Cantabria</option>
+						<option value="CO">Cordoba</option>
+						<option value="GR">Granada</option>
+						<option value="LE">León</option>
+						<option value="MA">Madrid</option>
+						<option value="NA">Navarra</option>
+						<option value="SA">Salamanca</option>
+						<option value="TE">Tenerife</option>
+						<option value="VA">Valencia</option>
+						<option value="ZA">Zaragoza</option>
+					</select>
+				</fieldset>
+
+				<fieldset>
+					<legend> <b> Datos Bancarios </b> </legend>
+					<b>Seleccione su tarjeta:</b><br>
+					<input type="radio" name="banco" value="tarjeta" id="VISA"> <label>VISA</label><br>
+					<input type="radio" name="banco" value="tarjeta" id="MasterCard"> <label>MasterCard</label><br>
+					<input type="radio" name="banco" value="tarjeta" id="AmEx"> <label>American Express</label><br>
+					<input type="radio" name="banco" value="tarjeta" id="Diners"> <label>Diners Club</label><br>
+				</fieldset>
+				<br>
+				<span id="submit"><input type="submit" value="Enviar" name="enviar"></span>
+			</form>
+		</div>
+	</div>
+{% endblock %}

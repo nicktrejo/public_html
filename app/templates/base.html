@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CINESTORE-{% block title %} {% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='estilo.css') }}/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script  src="./js/funciones.js"></script>
+	
+</head>
+
+<body>
+	<header>
+		<div class= "titulo">
+			<a href={{ url_for('index') }} ><h2>CINESTORE</h2></a>
+		</div>
+		<div id=menu-wrapper>
+			<ul id="hmenu">
+				 <li><a href="#">CATEGORIAS </a>
+					<ul class="sub-menu">
+						  <li><a href="#">   Acci&oacute;n y aventuras  </a></li>
+						  <li><a href="#">  Animaci&oacute;n </a></li>
+						  <li><a href="#">  Ciencia ficci&oacute;n y fantas&iacute;a</a></li>
+						  <li><a href="#">  Cine familiar </a></li>
+						  <li><a href="#">  Comedia </a></li>
+						  <li><a href="#">  Documentales </a></li>
+						  <li><a href="#">  Drama </a></li>    
+						  <li><a href="#">  Romantice </a></li>
+						  <li><a href="#">  Terror </a></li>   
+						  <li><a href="#">  Varias </a></li>   
+					</ul>
+				</li>
+				<li><a href="#">    FORMATO </a>
+					<ul class="sub-menu">
+					<li><a href="#">DVD</a> </li>
+					<li><a href="#">BLUE - RAY</a> </li>
+					</ul>
+				</li>
+				<li><a href="#"> AYUDA</a>
+					<ul class="sub-menu">
+					<li><a href="#">    Preguntas Frecuentes</a> </li>
+					<li><a href="#">    Acerca de</a> </li>
+					</ul>
+			    </li>
+				<li><input type="text" placeholder="Buscar" name="Buscar"></li>
+			</ul>
+	     </div>
+	</header>
+
+	<main>
+		<nav>
+			<div >
+				<a href="{{ url_for('carrito') }}"></a><img src="imagenes/carro.png"  alt="carrito" id="carro">
+		    	</div>
+			<a href="{{ url_for('carrito') }}" class="linksbotton"><button type="button"  onclick="carro">  Carrito  </button></a>
+			<p id="button1"> </p>			
+			<a href="{{ url_for('signin') }}"class="linksbotton"><button type="button" onclick="">Crea tu cuenta</button></a>
+			<p id="button2"> </p>			
+			<a href="{{ url_for('login') }}" class="linksbotton"><button type="button"  onclick= "alerta();Signin()">Identificate</button></a>
+			<p id="button"> </p>
+			<a href="" class="linksbotton"></a><button type="button"  onclick="Signout()">Salir</a></button>
+
+			<ul id="lat">
+				<li><a href="#"> NOVEDADES </a></li>
+				<li><a href="#"> Acci&oacute;n y aventuras </a></li>
+				<li><a href="#"> Animaci&oacute;n </a></li>
+				<li><a href="#"> Ciencia ficci&oacute;n y fantas&iacute;a </a></li>
+				<li><a href="#"> Cine familiar </a></li>
+				<li><a href="#"> Comedia </a></li>
+				<li><a href="#"> Documentales </a></li>
+				<li><a href="#"> Drama </a></li>
+				<li><a href="#"> Romantice </a></li>
+				<li><a href="#"> Terror </a></li>
+				<li><a href="#"> Varias </a></li>
+			</ul>
+		</nav>
+
+	<!--CONTENIDO VARIABLE SEGUN LA PAGINA-->
+	    {% block content%} {% endblock %}
+
+	</main>
+
+	<footer>
+		<p>Contactanos</p>
+	</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+<!--Titulo para cada página-->
+{% block title %}
+	PETER
+{% endblock%}
+
+<!--Contenido propio de la página entre las llaves-->
+{% block content %}
+	<div class="bloquepeli">
+		<div id="pelicula">
+			<div class="pimagen">
+				<img src="../imagenes/PP.jpg" alt="Peter Pan">
+			</div>
+			<div id="pdetalle">
+				<h1>Peter Pan</h1>
+				<ul>
+				  	<li><strong>Direccion:</strong>: Ron Clements</li>
+				  	<li><strong>Reparto:</strong>:  John Musker</li>
+				  	<li><strong>Sinopsis:</strong> El clásico original de Walt Disney Peter Pan en Regreso al País de Nunca Jamás continúa lleno de fantasía, aventuras y magia. Únete a Campanilla, Peter Pan y los Niños Perdidos para conocer a Jane, la hija de Wendy, quien piensa que ya es mayor para los cuentos de hadas y piratas. Pero cuando el Capitán Garfio la rapta para llevársela al País de Nunca Jamás, volverá a creer en los cuentos de magia. El astuto pirata pone en marcha una trama para capturar a Peter y Campanilla, cuya luz se está apagando porque Jane no cree en las hadas. Ahora, Jane es su única esperanza, pero primero deberá tener fe y confianza.</li>
+				</ul>
+				<div class="precio">
+					12,99€
+					<p> <button type="button">Añadir al carrito</button></p>
+				</div>
+			</div>
+		</div>
+
+		<div id="potras">
+			<h2>Tambien puedes ver .... </h2>
+			<ul>
+				<li>La Sirenita</li>
+				<li>Dumbo </li>
+				<li>Alicia en el Pais de las Maravillas</li>
+				<li>Pinocho</li>
+			</ul>
+		</div>
+
+		<div id="popciones">
+			<div id="izq">
+				<img src="../imagenes/HPPF.jpg" alt="Harry Potter">Harry Potter
+				<p><button type="button" onclick="harry.html" >VER DETALLE</button></p>
+			</div>
+			<div id="der">
+				<img src="../imagenes/D.jpg" alt="Dumbo">Dumbo
+				<p><button type="button">VER DETALLE</button></p>
+			</div>
+			<div id="izq1">
+				<img src="../imagenes/PDCST.jpg" alt="Piratas del Caribe">Piratas del caribe
+				<p><button type="button">VER DETALLE</button></p>
+			</div>
+			<div id="der1">
+				<img src="../imagenes/PP.jpg" alt="Peter Pan">Peter Pan
+				<p><button type="button">VER DETALLE</button></p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

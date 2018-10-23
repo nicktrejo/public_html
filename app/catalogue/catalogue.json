@@ -1,0 +1,155 @@
+ {
+	 "peliculas": [
+ 			{
+               "titulo": "Harry Potter y el cáliz de fuego ",
+               "sigla": "harry",
+			   "poster": "imagenJSON/HPPA.jpg",
+               "director": "Alfonso Cuarón",
+               "precio": "14.99",
+               "genero": "Fantasia",
+               "anno": "2016",
+               "formato": "DVD",
+               "actores": [
+	                    "Daniel Radcliffe",
+	                    "Emma Watson",
+	                    "Rupert Grint"
+                     ]
+			 },
+             {
+               "titulo": "Harry Potter y el prisionero de Azkaban ",
+               "sigla": "harry3",
+               "poster": "imagenJSON/HPPA.jpg",
+               "director": "Alfonso Cuarón",
+               "precio": "14.99",
+               "genero": "Fantasia",
+               "anno": "2016",
+               "formato": "DVD",
+               "actores": [
+	                    "Daniel Radcliffe",
+	                    "Emma Watson",
+	                    "Rupert Grint"
+                     ]
+			   },
+			  {
+               "titulo": "Animales Fantasticos y donde encontrarlos ",
+               "sigla": "animales",
+               "poster": "imagenJSON/AFDE.jpg",
+               "director": "David Yates",
+               "precio": "16.99",
+               "genero": "Fantasia",
+               "anno": "2017",
+               "formato": "BLUERAY",
+               "actores": [
+                     "Eddie Redmayne",
+				     "Ezra Miller",
+                     "Colin Farrell"
+                     ]
+			   },				
+			  {
+               "titulo": "Malefica ",
+               "sigla": "malefica",
+               "poster": "imagenJSON/M.jpg",
+               "director": "Robert Stromberg",
+               "precio": "14.99",
+               "genero": "Infantil",
+               "anno": "2014",
+               "formato": "BLUERAY",
+               "actores": [
+                     "Angelina Jolie",
+				     "Elle Fanning",
+                     "Sharlto Copley"
+				 ]
+			   },				
+			  {
+               "titulo": "Charlie y la Fabrica de chocolate ",
+               "sigla": "charlie",
+               "poster": "imagenJSON/CFC.jpg",
+               "director": "Tim Burton",
+               "precio": "10.99",
+               "genero": "Infantil",
+               "anno": "2018",
+               "formato": "BLUERAY",
+               "actores": [
+
+                     "Johnny Deep",
+				     "Freddie Highmore",
+                     "Helena Bonham Carter"
+                     ]
+			   },				
+			  {
+               "titulo": "Jumanji ",
+               "sigla": "jumanji",
+               "poster": "imagenJSON/J.jpg",
+               "director": "Jake Kasdan",
+               "precio": "15.99",
+               "genero": "Comedia",
+               "anno": "2018",
+               "formato": "DVD",
+               "actores": [
+                     "Dwayne Johnson",
+				     "Jack Black",
+                     "Kevin Hart"
+				 ]
+			   },				
+			  {
+               "titulo": "Antes de ti",
+               "sigla": "antes",
+               "poster": "imagenJSON/ADT.jpg",
+               "director": "Thea Sharrock",
+               "precio": "10.99",
+               "genero": "Romantica",
+               "anno": "2016",
+               "formato": "DVD",
+               "actores": [
+                     "Emilia Clarke",
+				     "Sam Claflin",
+                     "Matthew Lewis"
+				 ]
+			   },				
+			  {
+               "titulo": "Cartas a Julieta",
+               "sigla": "cartas",
+               "poster": "imagenJSON/CJ.jpg",
+               "director": "Gary Winick",
+               "precio": "20.99",
+               "genero": "Romantica",
+               "anno": "2010",
+               "formato": "BLUERAY",
+               "actores": [
+                     "Amanda Seyfried",
+				     "Vanessa Redgrave",
+                     "Christopher Egan"
+				 ]
+			   },
+			  {
+               "titulo": "La Cabana en el Bosque",
+               "sigla": "cabana",
+               "poster": "imagenJSON/LC.jpg",
+               "director": "Drew Goddard",
+               "precio": "6.99",
+               "genero": "Terror",
+               "anno": "2010",
+               "formato": "BLUERAY",
+               "actores": [
+                     "Kristen Connolly",
+				     "Chris Hemsworth",
+                     "Anna Hutchison"
+				 ]
+			   },
+			  {
+               "titulo": "El Aro",
+               "sigla": "aro",
+               "poster": "imagenJSON/EC.jpg",
+               "director": "Hideo Nakata",
+               "precio": "6.99",
+               "genero": "Terror",
+               "anno": "2014",
+               "formato": "DVD",
+               "actores": [
+                     "Nanako Matsushima",
+				     "Miki Nakatani",
+                     "Hiroyuki Sanada"
+                  ]
+			   }			   
+		]
+}

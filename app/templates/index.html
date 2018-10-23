@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+<!--Titulo para cada página-->
+{% block title %}
+    INDEX
+{% endblock%}
+
+<!--Contenido propio de la página entre las llaves-->
+{% block content %}
+
+	<div class="row">
+		<h2> .Estrenos</h2>
+		
+		
+		{% for item in catalogue["peliculas"] %}
+		<div class="column">
+			<h4> {{ item["titulo"] }} </h4>
+			<a href={{ url_for(item["sigla"]) }} >
+				<img src={{ url_for('static',filename=item['sigla']+".jpg") }} alt={{ item["sigla"] }} style="width: 100%" onclick="myFunction(this);" >
+			</a>
+
+		</div>
+		{% endfor %}
+
+<!-- SE PUEDE QUITAR TODO ESTE COMENTARIO
+		<div class="column">
+			<h4>Piratas del Caribe Mareas Misteriosas</h4>
+			<a href="pag/piratas.html"><img src="imagenes/PDCST.jpg" alt="Piratas del Caribe " style="width: 100%" onclick="myFunction(this);" ></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" alt="Computer" href="computer.htm"></map>
+		</div>
+		<div class="column">
+			<h4>Harry Potter y la Piedra Filosofal</h4>
+			<a href="pag/harry.html"><img src="imagenes/HPPF.jpg" alt="Harry Potter y la Piedra Filosofal" style="width: 100%" onclick="myFunction(this);" ></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" ></map>
+		</div>
+		<div class="column">
+			<h4>  Dumbo       </h4>
+			<a href="pag/dumbo.html"><img src="imagenes/D.jpg" alt="Dumbo" style="width: 100%" onclick="myFunction(this);"></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" >	</map>			
+		</div>
+		<div class="column">
+			<h4>Peter Pan y los niños perdidos</h4>
+			<a href="pag/peter.html"><img src="imagenes/PP.jpg" alt="Peter Pan y los niños perdidos" style="width: 100%" onclick="myFunction(this);" ></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" ></map>
+		</div>
+		<div class="column">
+			<h4>Piratas del Caribe Mareas Misteriosas</h4>
+			<a href="pag/piratas.html"><img src="imagenes/PDCST.jpg" alt="Piratas del Caribe " style="width: 100%" onclick="myFunction(this);" ></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" alt="Computer" href="computer.htm"></map>
+		</div>
+		<div class="column">
+			<h4>Aladdin</h4>
+			<a href="pag/aladdin.html"><img src="imagenes/A.jpg" alt="Alladin" style="width: 100%" onclick="myFunction(this);" ></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" ></map>
+		</div>
+		<div class="column">
+			<h4>        Dumbo        </h4>
+			<a href="pag/dumbo.html"><img src="imagenes/D.jpg" alt="Dumbo" style="width: 100%" onclick="myFunction(this);"></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" >	</map>			
+		</div>
+		<div class="column">
+			<h4>Peter Pan y los niños perdidos</h4>
+			<a href="pag/peter.html"><img src="imagenes/PP.jpg" alt="Peter Pan y los niños perdidos" style="width: 100%" onclick="myFunction(this);" ></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" ></map>
+		</div>	
+		<div class="column">
+			<h4>Piratas del Caribe Mareas Misteriosas</h4>
+			<a href="pag/piratas.html"><img src="imagenes/PDCST.jpg" alt="Piratas del Caribe " style="width: 100%" onclick="myFunction(this);" ></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" alt="Computer" href="computer.htm"></map>
+		</div>
+		<div class="column">
+			<h4>Harry Potter y la Piedra Filosofal</h4>
+			<a href="pag/harry.html"><img src="imagenes/HPPF.jpg" alt="Harry Potter y la Piedra Filosofal" style="width: 100%" onclick="myFunction(this);" ></a>
+			<map name="workmap"> <area shape="rect" coords="0,0,350,350" ></map>
+		</div>				
+	</div>
+ FIN DEL COMENTARIO A QUITAR-->
+
+
+	<!-- VANE, ¿para que es este container? Me parece que ya por default aparece oculto-->
+	
+	<div class="container">
+		<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+	<!-- <img id="expandedImg" style="width:100%"> -->
+		<div id="imgtext"></div>
+	</div>
+
+{% endblock %}
+
+<!-- Esto estaba en el ejemplo del profe (dentro de block content) y no lo estoy usano:
+
+    <ul>
+    {% for item in movies %}
+    <li>{{ item.titulo }}</li>
+    {% endfor %}
+    <ul>
+-->

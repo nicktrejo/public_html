@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+<!--Titulo para cada página-->
+{% block title %}
+	CARRITO
+{% endblock%}
+
+<!--Contenido propio de la página entre las llaves-->
+{% block content %}
+	<div class="bloquepeli">
+		<div class="cabecera">
+			<div>
+				<img src="../imagenes/carro.png" class="topimg" alt="Carrito"/>
+			</div>
+			<br>
+			<br>
+			<h1>CARRITO DE COMPRAS</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+		<div class="contenido">
+			<table>
+				<tr>
+					<td>1.</td>
+					<td><img src="../imagenes/PDCST.jpg" alt="Piratas del Caribe " class="iconocarrito"></td>
+					<td><strong>Piratas del Caribe Mareas Misteriosas</strong></td>
+					<td>&euro;5</td>
+					<td><button> Quitar </button>  </td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td><img src="../imagenes/HPPF.jpg" alt="Harry Potter y la Piedra Filosofal" class="iconocarrito"></td>
+					<td><strong>Harry Potter y la Piedra Filosofal</strong></td>
+					<td>&euro;3</td>
+					<td><button> Quitar </button>  </td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td><img src="../imagenes/D.jpg" alt="Dumbo" class="iconocarrito"></td>
+					<td><strong>Dumbo</strong></td>
+					<td>&euro;8</td>
+					<td><button> Quitar </button>  </td>
+				</tr>
+				<tr>
+					<td>4.</td>
+					<td><img src="../imagenes/PP.jpg" class="iconocarrito" alt="Harry_Potter_1"></td>
+					<td><strong>Peter Pan y los niños perdidos</strong></td>
+					<td>&euro;5</td>
+					<td><button> Quitar </button>  </td>
+				</tr>
+				<tr>
+					<td>5.</td>
+					<td><img src="../imagenes/PDCST.jpg" alt="Peter Pan y los niños perdidos" class="iconocarrito"></td>
+					<td><strong>Piratas del Caribe Mareas Misteriosas</strong></td>
+					<td>&euro;5</td>
+					<td><button> Quitar </button>  </td>
+				</tr>
+				<tr id="fintabla">
+					<td colspan="3"><h2>TOTAL</h2></td>
+					<td>&euro;50</td>
+					<td><button> Continuar </button>  </td>
+				</tr>
+			</table>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+<!--Titulo para cada página-->
+{% block title %}
+	DUMBO
+{% endblock%}
+
+<!--Contenido propio de la página entre las llaves-->
+{% block content %}
+	<div class="bloquepeli">
+		<div id="pelicula">
+			<div class="pimagen">
+				<img src="../imagenes/D.jpg" alt="Dumbo ">
+			</div>
+			<div id="pdetalle">
+				<h1>Dumbo</h1>
+				<ul>
+					<li><strong>Direccion:</strong>: Ron Clements</li>
+					<li><strong>Reparto:</strong>: John Musker</li>
+					<li><strong>Sinopsis:</strong> La señora Jumbo acaba de ser mama de un pequeño elefantito con grandes orejas que rápidamente se convierte en objeto de burla de los animales y de los niños que visitan el circo, pero la señora Jumbo le defiende siempre, hasta el punto de ser encerrada por enfrentarse a todo aquel que se mofe de su retoño. El pequeño Dumbo, maltratado y ridiculizado por todos sus compañeros, sólo cuenta con la ayuda de un minúsculo ratoncito llamado Timoteo, que decide hacer de él una estrella del circo. Pronto, Timoteo descubre que Dumbo puede volar y la vida del elefantito cambia para siempre.. </li>
+				</ul>
+				<div class="precio">
+					12,99€
+					<p> <button type="button">Añadir al carrito</button></p>
+				</div>
+			</div>
+		</div>
+
+		<div id="potras">
+			<h2>Tambien puedes ver .... </h2>
+			<ul>
+				<li>La Sirenita</li>
+				<li>Dumbo </li>
+				<li>Alicia en el Pais de las Maravillas</li>
+				<li>Pinocho</li>
+			</ul>
+		</div>
+		<div id="popciones">
+			<div id="izq">
+				<img src="../imagenes/HPPF.jpg" alt="HP " >Harry Potter
+				<p><button type="button">VER</button></p>
+			</div>
+			<div id="der">
+				<img src="../imagenes/D.jpg" alt="HP " >Dumbo
+				<p><button type="button">VER</button></p>
+			</div>
+			<div id="izq1">
+				<img src="../imagenes/PDCST.jpg" alt="HP " >Piratas del caribe
+				<p><button type="button">VER</button></p>
+			</div>
+			<div id="der1">
+				<img src="../imagenes/PP.jpg" alt="HP " >Peter Pan
+				<p><button type="button">VER</button></p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

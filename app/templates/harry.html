@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+<!--Titulo para cada página-->
+{% block title %}
+	HARRY
+{% endblock%}
+
+<!--Contenido propio de la página entre las llaves-->
+{% block content %}
+	<div class="bloquepeli">
+		<div id="pelicula">
+			<div class="pimagen">
+				<img src="../imagenes/HPPF.jpg" alt="Harry Potter">
+			</div>
+			<div id="pdetalle">
+				<h1>Harry Potter y la Piedra Filosofal</h1>
+				<ul>
+					<li><strong>Direccion:</strong>:  Chris Colombus</li>
+					<li><strong>Reparto:</strong>:   Daniel Radcliffe</li>
+					<li><strong>Reparto:</strong>:  Emma Watson</li>
+					<li><strong>Reparto:</strong>:  Rupert Grint</li>
+					<li><strong>Sinopsis:</strong>  Harry Potter es un huérfano que vive con sus desagradables tíos, los Dursley, y su repelente primo Dudley. Se acerca su undécimo cumpleaños y tiene pocas esperanzas de recibir algún regalo, ya que nunca nadie se acuerda de él. Sin embargo, pocos días antes de su cumpleaños, una serie de misteriosas cartas dirigidas a él y escritas con una estridente tinta verde rompen la monotonía de su vida: Harry es un mago y sus padres también lo eran.  </li>
+				</ul>
+				<div class="precio">
+					32,99€
+					<p> <button type="button">Añadir al carrito</button></p>
+				</div>
+			</div>
+		</div>
+		<div id="potras">
+			<h2>Tambien puedes ver .... </h2>
+			<ul>
+				<li>Harry Potter y La Piedra Filosofal</li>
+				<li>Harry Potter y las Reliquias de la Muerte Parte 1</li>
+				<li>Harry Potter y Las Reliquias de la Muerte Parte 2</li>
+				<li>Harry Potter y el Prisionero de Azkaban</li>
+			</ul>
+		</div>
+
+		<div id="popciones">
+			<div id="izq">
+				<img src="../imagenes/HPPF.jpg" alt="Harry Potter">Harry Potter
+				<p><button type="button" onclick="harry.html" >VER DETALLE</button></p>
+			</div>
+			<div id="der">
+				<img src="../imagenes/D.jpg" alt="Dumbo">Dumbo
+				<p><button type="button">VER DETALLE</button></p>
+			</div>
+			<div id="izq1">
+				<img src="../imagenes/PDCST.jpg" alt="Piratas del Caribe">Piratas del caribe
+				<p><button type="button">VER DETALLE</button></p>
+			</div>
+			<div id="der1">
+				<img src="../imagenes/PP.jpg" alt="Peter Pan">Peter Pan
+				<p><button type="button">VER DETALLE</button></p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

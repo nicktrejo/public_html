@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+<!--Titulo para cada página-->
+{% block title %}
+	Login
+{% endblock%}
+
+<!--Contenido propio de la página entre las llaves-->
+{% block content %}
+	<div class="bloquepeli">
+		<div class="cabecera">
+			<div>
+				<img src="../imagenes/usuario.png" class="topimg" alt="usuario"/>
+			</div>
+			<br>
+			<br>
+			<h1>LOGIN</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+		<div class="contenido">
+			<form>
+				<fieldset>
+				<legend> <b> INICIAR SESION </b> </legend>
+					
+
+					<label for="usuario">Usuario</label>
+					<input type="text" name="usuario" placeholder="Nombre de usuario" id="usuario"><br>
+
+					<label for="contrasena">Contrase&#241;a</label>
+					<input type="password" name="contrasena" placeholder="********" id="contrasena"><br>
+
+				</fieldset>
+
+				<br>
+				<span id="submit"><input type="submit" value="Enviar" name="enviar"></span>
+			</form>
+		</div>
+	</div>
+{% endblock %}

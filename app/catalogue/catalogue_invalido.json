@@ -1,0 +1,34 @@
+{ 	
+	 "peliculas": [
+ 			{
+               "titulo": "Harry Potter y el cáliz de fuego ",
+               "sigla": "harry",
+			   "poster": "imagenJSON/HPPA.jpg",
+               "director": "Alfonso Cuarón",
+               "precio": "14.99",
+               "genero": "Fantasia",
+               "anno": "2016",
+               "formato": "DVD",
+               "actores": [
+	                    "Daniel Radcliffe",
+	                    "Emma Watson",
+	                    "Rupert Grint"
+                     ]
+			 },
+             {
+               "titulo": "Harry Potter y el prisionero de Azkaban ",
+               "sigla": "piratas",
+               "poster": "imagenJSON/HPPA.jpg",
+               "director": "Alfonso Cuarón",
+               "precio": "14.99",
+               "genero": "Fantasia",
+               "anno": "2016",
+               "formato": "DVD",
+               "actores": [
+	                    "Daniel Radcliffe",
+	                    "Emma Watson",
+	                    "Rupert Grint"
+                     ]
+			   }	   
+		]
+}
