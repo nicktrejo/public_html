@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}- VideoClub</title>
+    <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='estilo.css') }}/>
+</head>
+<body>
+    <div>VideoClub:
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('login') }}">Sign In</a></div>
+    </div>
+    {% block content%} {% endblock %}
+</body>
+</html>
