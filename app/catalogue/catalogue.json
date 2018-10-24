@@ -2,8 +2,8 @@
 	 "peliculas": [
  			{
                "titulo": "Harry Potter y el cáliz de fuego ",
-               "sigla": "harry",
-			   "poster": "imagenJSON/HPPA.jpg",
+               "sigla": "harry4",
+			   "poster": "imagenes/harry4.jpg",
                "director": "Alfonso Cuarón",
                "precio": "14.99",
                "genero": "Fantasia",
@@ -18,7 +18,7 @@
              {
                "titulo": "Harry Potter y el prisionero de Azkaban ",
                "sigla": "harry3",
-               "poster": "imagenJSON/HPPA.jpg",
+               "poster": "imagenes/harry3.jpg",
                "director": "Alfonso Cuarón",
                "precio": "14.99",
                "genero": "Fantasia",
@@ -33,7 +33,7 @@
 			  {
                "titulo": "Animales Fantasticos y donde encontrarlos ",
                "sigla": "animales",
-               "poster": "imagenJSON/AFDE.jpg",
+               "poster": "imagenes/none.png",
                "director": "David Yates",
                "precio": "16.99",
                "genero": "Fantasia",
@@ -48,7 +48,7 @@
 			  {
                "titulo": "Malefica ",
                "sigla": "malefica",
-               "poster": "imagenJSON/M.jpg",
+               "poster": "imagenes/none.png",
                "director": "Robert Stromberg",
                "precio": "14.99",
                "genero": "Infantil",
@@ -63,7 +63,7 @@
 			  {
                "titulo": "Charlie y la Fabrica de chocolate ",
                "sigla": "charlie",
-               "poster": "imagenJSON/CFC.jpg",
+               "poster": "imagenes/none.png",
                "director": "Tim Burton",
                "precio": "10.99",
                "genero": "Infantil",
@@ -79,7 +79,7 @@
 			  {
                "titulo": "Jumanji ",
                "sigla": "jumanji",
-               "poster": "imagenJSON/J.jpg",
+               "poster": "imagenes/none.png",
                "director": "Jake Kasdan",
                "precio": "15.99",
                "genero": "Comedia",
@@ -94,7 +94,7 @@
 			  {
                "titulo": "Antes de ti",
                "sigla": "antes",
-               "poster": "imagenJSON/ADT.jpg",
+               "poster": "imagenes/none.png",
                "director": "Thea Sharrock",
                "precio": "10.99",
                "genero": "Romantica",
@@ -109,7 +109,7 @@
 			  {
                "titulo": "Cartas a Julieta",
                "sigla": "cartas",
-               "poster": "imagenJSON/CJ.jpg",
+               "poster": "imagenes/none.png",
                "director": "Gary Winick",
                "precio": "20.99",
                "genero": "Romantica",
@@ -124,7 +124,7 @@
 			  {
                "titulo": "La Cabana en el Bosque",
                "sigla": "cabana",
-               "poster": "imagenJSON/LC.jpg",
+               "poster": "imagenes/none.png",
                "director": "Drew Goddard",
                "precio": "6.99",
                "genero": "Terror",
@@ -139,7 +139,7 @@
 			  {
                "titulo": "El Aro",
                "sigla": "aro",
-               "poster": "imagenJSON/EC.jpg",
+               "poster": "imagenes/none.png",
                "director": "Hideo Nakata",
                "precio": "6.99",
                "genero": "Terror",
