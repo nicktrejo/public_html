@@ -14,9 +14,9 @@
 		
 		{% for item in catalogue["peliculas"] %}
 		<div class="column">
-			<h4> {{ item["titulo"] }} </h4>
-			<a href={{ url_for(item["sigla"]) }} >
-				<img src={{ url_for('static',filename=item['sigla']+".jpg") }} alt={{ item["sigla"] }} style="width: 100%" onclick="myFunction(this);" >
+			<h4> {{ item["titulo"] }}
+			<a href={{ url_for("peli", movie = item["sigla"] ) }} >
+				<img src={{ url_for('static',filename=item['poster']) }} alt={{ item["sigla"] }} style="width: 100%" onclick="myFunction(this);" >
 			</a>
 
 		</div>
