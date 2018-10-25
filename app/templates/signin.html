@@ -10,7 +10,7 @@
 	<div class="bloquepeli">
 		<div class="cabecera">
 			<div>
-				<img src="../imagenes/usuario.png" class="topimg" alt="Carrito"/>
+				<img src={{ url_for('static', filename='imagenes/usuario.png') }} class="topimg" alt="Carrito"/>
 			</div>
 			<br>
 			<br>
@@ -51,7 +51,7 @@
 				<fieldset>
 					<legend> <b> Persona </b> </legend>
 					<div id="iconousuario">
-						<img src="../imagenes/usuarioupload.png" class="iconousuario" alt="Usuario"><br>
+						<img src={{ url_for('static', filename='imagenes/usuarioupload.png') }} class="iconousuario" alt="Usuario"><br>
 						<input type="file" name="pic" id="pic">
 					</div>
 					<label for="username"><span>Username:</span></label>
@@ -94,21 +94,16 @@
 					<input type="checkbox" name="preferencias" value="preferencias" id="Romantice"> <label>Romantice</label><br>
 					<input type="checkbox" name="preferencias" value="preferencias" id="Terror"> <label>Terror</label><br>
 				</fieldset>
-
 			<fieldset>
 					<legend> <b> Domicilio </b> </legend>
 					<label for="calle">Calle</label>
 					<input type="text" name="calle" placeholder="de la Castellana" id="calle">><br>
-
 					<label for="altura">Numero</label>
 					<input type="number" name="altura" placeholder="123" id="altura"><br>
-
 					<label for="piso">Piso</label>
 					<input type="number" name="piso" placeholder="3" id="piso"><br>
-
 					<label for="codigopostal">Codigo Postal</label>
 					<input type="number" name="codigopostal" placeholder="78001" id="codigopostal"><br>
-
 					<label for="provincia">Provincia</label>
 					<select name="provincia" id="provincia">
 						<option value="">Seleccione...</option>
@@ -129,7 +124,6 @@
 						<option value="ZA">Zaragoza</option>
 					</select>
 				</fieldset>
-
 				<fieldset>
 					<legend> <b> Datos Bancarios </b> </legend>
 					<b>Seleccione su tarjeta:</b><br>

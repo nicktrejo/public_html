@@ -6,7 +6,7 @@
 	<title>CINESTORE-{% block title %} {% endblock %}</title>
 	<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='estilo.css') }}/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script type="text/javascript" src="static/funcion.js"></script>
+	<script type="text/javascript" src={{ url_for('static', filename='funcion.js') }}></script>
 </head>
 
 <body>
