@@ -1,4 +1,4 @@
- {
+{
 	 "peliculas": [
  			{
                "titulo": "Harry Potter y el cáliz de fuego ",
@@ -35,7 +35,7 @@
 			  {
                "titulo": "Animales Fantasticos y donde encontrarlos ",
                "sigla": "animales",
-               "poster": "imagenes/none.png",
+               "poster": "imagenes/animales.jpg",
                "director": "David Yates",
                "precio": "16.99",
                "genero": "Fantasia",
@@ -47,11 +47,11 @@
 		     "Ezra Miller",
                      "Colin Farrell"
                      ]
-			   },				
+			   },
 			  {
                "titulo": "Malefica ",
                "sigla": "malefica",
-               "poster": "imagenes/none.png",
+               "poster": "imagenes/malefica.jpg",
                "director": "Robert Stromberg",
                "precio": "14.99",
                "genero": "Infantil",
@@ -63,11 +63,11 @@
 				     "Elle Fanning",
                      "Sharlto Copley"
 				 ]
-			   },				
+			   },
 			  {
                "titulo": "Charlie y la Fabrica de chocolate ",
                "sigla": "charlie",
-               "poster": "imagenes/none.png",
+               "poster": "imagenes/charlie.jpg",
                "director": "Tim Burton",
                "precio": "10.99",
                "genero": "Infantil",
@@ -80,11 +80,11 @@
 		     "Freddie Highmore",
                      "Helena Bonham Carter"
                      ]
-			   },				
+			   },
 			  {
                "titulo": "Jumanji ",
                "sigla": "jumanji",
-               "poster": "imagenes/none.png",
+               "poster": "imagenes/jumanji.jpg",
                "director": "Jake Kasdan",
                "precio": "15.99",
                "genero": "Comedia",
@@ -96,11 +96,11 @@
 				     "Jack Black",
                      "Kevin Hart"
 				 ]
-			   },				
+			   },
 			  {
                "titulo": "Antes de ti",
                "sigla": "antes",
-               "poster": "imagenes/none.png",
+               "poster": "imagenes/antesdeti.jpg",
                "director": "Thea Sharrock",
                "precio": "10.99",
                "genero": "Romantica",
@@ -112,11 +112,11 @@
 				     "Sam Claflin",
                      "Matthew Lewis"
 				 ]
-			   },				
+			   },
 			  {
                "titulo": "Cartas a Julieta",
                "sigla": "cartas",
-               "poster": "imagenes/none.png",
+               "poster": "imagenes/cartas.jpg",
                "director": "Gary Winick",
                "precio": "20.99",
                "genero": "Romantica",
@@ -132,7 +132,7 @@
 			  {
                "titulo": "La Cabana en el Bosque",
                "sigla": "cabana",
-               "poster": "imagenes/none.png",
+               "poster": "imagenes/cabana.jpg",
                "director": "Drew Goddard",
                "precio": "6.99",
                "genero": "Terror",
@@ -148,7 +148,7 @@
 			  {
                "titulo": "El Aro",
                "sigla": "aro",
-               "poster": "imagenes/none.png",
+               "poster": "imagenes/aro.jpg",
                "director": "Hideo Nakata",
                "precio": "6.99",
                "genero": "Terror",
@@ -160,6 +160,6 @@
 				     "Miki Nakatani",
                      "Hiroyuki Sanada"
                   ]
-			   }	   
+			   }
 		]
 }
