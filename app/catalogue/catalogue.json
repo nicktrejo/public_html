@@ -9,6 +9,7 @@
                "genero": "Fantasia",
                "anno": "2016",
                "formato": "DVD",
+	       "sinopsis":"La cuarta parte de la serie del niño mago comienza con la Copa Internacional de Quidditch. Cuenta también el inicio de la atracción por Cho Chang y otro año de magia, en el que una gran sorpresa obligará a Harry a enfrentarse a muchos desafíos temibles. También habrá un torneo de magia para tres escuelas, y el temido regreso de Aquel-que-no-debe-ser-nombrado. ",
                "actores": [
 	                    "Daniel Radcliffe",
 	                    "Emma Watson",
@@ -24,6 +25,7 @@
                "genero": "Fantasia",
                "anno": "2016",
                "formato": "DVD",
+	       "sinopsis":"Cuando Harry Potter y sus amigos vuelven a Hogwarts para cursar su tercer año de estudios, se ven involucrados en un misterio: de la prisión para magos de Azkaban se ha fugado Sirius Black, un peligroso mago que fue cómplice de Lord Voldemort y que intentará vengarse de Harry Potter. El joven aprendiz de mago contribuyó en gran medida a la condena de Sirius, por lo que hay razones para temer por su vida.",
                "actores": [
 	                    "Daniel Radcliffe",
 	                    "Emma Watson",
@@ -39,9 +41,10 @@
                "genero": "Fantasia",
                "anno": "2017",
                "formato": "BLUERAY",
+	       "sinopsis":"El magizoólogo / Conoce a los Animales Fantásticos: Conoce a los animales fantásticos y descubre sus historias / Adéntrate en el MACUSA / en la maleta de Newt y en las localizaciones de la película. Antes de Harry Potter: ¡Comienza una nueva era de magia! ",
                "actores": [
                      "Eddie Redmayne",
-				     "Ezra Miller",
+		     "Ezra Miller",
                      "Colin Farrell"
                      ]
 			   },				
@@ -54,6 +57,7 @@
                "genero": "Infantil",
                "anno": "2014",
                "formato": "BLUERAY",
+	       "sinopsis":"Maléfica es la historia jamás contada de la villana Disney por excelencia, del clásico 'La Bella Durmiente', y los elementos de la traición que terminó por endurecer su corazón puro. Decidida a vengarse se erige como feroz protectora de las ciénagas. Maléfica (Angelina Jolie) lanza una maldición irrevocable sobre Aurora, la hija recién nacida del rey de los humanos. Cuando Aurora crece se encuentra atrapada en medio de un conflicto en ebullición entre el reino del bosque, que ha aprendido a amar, y el reino de los humanos que sostiene su legado. Maléfica comprenderá que Aurora tiene la llave de la paz en el reino y tomará medidas drásticas que cambiarán ambos mundos para siempre. ",
                "actores": [
                      "Angelina Jolie",
 				     "Elle Fanning",
@@ -69,10 +73,11 @@
                "genero": "Infantil",
                "anno": "2018",
                "formato": "BLUERAY",
+	       "sinopsis":"Descubre campos de cesped de azúcar en la Habitación de Chocolate, navega por un río de chocolate en un barco de caramelo, haz experimentos con golosinas que nunca se acaban en la Habitación de los Inventos, juega con ardillas en la Habitación de las Nueces y llega hasta la Habitación de la Televisión. Entra en un mundo de fantasía, diversión e imaginación del que no querrás salir. Una fantástica película adaptada del clásico cuento infantil de Roald Dahl, dirigida por el aclamado director Tim Burton con su imaginativo estilo y protagonizada por Johnny Depp y Freddie Highmore. Consigue tu ticket de oro para entrar en la sorprendente fábrica de golosinas y prepárate para vivir una aventura muy sabrosa",
                "actores": [
 
                      "Johnny Deep",
-				     "Freddie Highmore",
+		     "Freddie Highmore",
                      "Helena Bonham Carter"
                      ]
 			   },				
@@ -85,6 +90,7 @@
                "genero": "Comedia",
                "anno": "2018",
                "formato": "DVD",
+	       "sinopsis":"Cuando el joven Alan Parrish descubre un misterioso juego de mesa, no se da cuenta de que tiene unos poderes inimaginables hasta que se ve transportado mágicamente ante los ojos de su amiga, Sarah, a las junglas indómitas de JUMANJI. 26 años después, Alan (Robin Williams) se reúne con Sarah (Bonnie Hunt) y junto a Judy (Kristen Dunst) y a Peter (Bradley Pierce) intenta ganarles la partida a las poderosas fuerzas del juego",
                "actores": [
                      "Dwayne Johnson",
 				     "Jack Black",
@@ -100,6 +106,7 @@
                "genero": "Romantica",
                "anno": "2016",
                "formato": "DVD",
+	       "sinopsis":"Louisa Clark (Emilia Clarke), una chica inestable y creativa, reside en un pequeño pueblo de la campiña inglesa. Vive sin rumbo y va de un trabajo a otro para ayudar a su familia a llegar a fin de mes. Sin embargo, un nuevo trabajo pondrá a prueba su habitual alegría. En el castillo local, se ocupa de cuidar y acompañar a Will Traynor (Sam Claflin), un joven y rico banquero que se quedó paralítico tras un accidente. ",
                "actores": [
                      "Emilia Clarke",
 				     "Sam Claflin",
@@ -115,9 +122,10 @@
                "genero": "Romantica",
                "anno": "2010",
                "formato": "BLUERAY",
+	       "sinopsis":"Letters to Juliet es una película romántica estadounidense protagonizada por Amanda Seyfried, Vanessa Redgrave, Christopher Egan, Gael García Bernal y Franco Nero. El director es Gary Winick. Se estrenó en Estados Unidos y en otros países el 14 de mayo de 2010",
                "actores": [
                      "Amanda Seyfried",
-				     "Vanessa Redgrave",
+		     "Vanessa Redgrave",
                      "Christopher Egan"
 				 ]
 			   },
@@ -130,6 +138,7 @@
                "genero": "Terror",
                "anno": "2010",
                "formato": "BLUERAY",
+	       "sinopsis":"Cinco amigos van a pasar el fin de semana a una cabaña aislada en un bosque, sin comunicación con el exterior. En el sótano encuentran una extraña colección de reliquias y, entre ellas, un diario que habla de la antigua familia de psicópatas que ocupó la casa. Lo que no sospechan es que están siendo observados y que su vida corre peligro. ¿Crees que conoces la historia?. ",
                "actores": [
                      "Kristen Connolly",
 				     "Chris Hemsworth",
@@ -145,6 +154,7 @@
                "genero": "Terror",
                "anno": "2014",
                "formato": "DVD",
+	       "sinopsis":"Entre los adolescentes japoneses circula la leyenda urbana de que todo aquel que visiona cierta cinta video, recibe una llamada y muere justo una semana después. La periodista de televisión Reiko Asakawa da poca credibilidad a la historia hasta que su propia sobrina muere y descubre que poco antes había visto un extraño video junto a tres amigos, los cuales también han aparecido muertos el mismo día. Tras localizar la cinta, Reiko es testigo de las imágenes espectrales que contiene y justo después suena el teléfono. Convencida de que solo le quedan siete días de vida, pide ayuda a Ryuji, profesor de matemáticas y su exmarido, para tratar de conseguir algo que nadie ha conseguido: resolver el enigma de la cinta de vídeo y romper la maldición",
                "actores": [
                      "Nanako Matsushima",
 				     "Miki Nakatani",
