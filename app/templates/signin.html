@@ -2,7 +2,7 @@
 
 <!--Titulo para cada página-->
 {% block title %}
-	Registraci&oacute;n
+	Registro usuario
 {% endblock%}
 
 <!--Contenido propio de la página entre las llaves-->
@@ -20,37 +20,68 @@
 			<br>
 		</div>
 		<div class="contenido">
-			<form>
+			<form onsubmit="return validar(this)">
+	<!--			<label for="username">
+					<span>username:</span>
+				</label>
+				<input id="username" name="username" type="text">
+				<br><br>
+				<label for="nombre">
+					<span>Nombre:</span>
+				</label>
+				<input id="nombre" name="nombre" type="text">
+				<br><br>
+ 				<label for="apellido">
+					<span>apellido:</span>
+				</label>
+ 				<input id="apellido" name="apellido" type="text">
+				<br><br>
+				<label for="correo">
+					<span>Correo electrónico:</span>
+				</label>
+				<input id="correo" name="correo" type="text">
+				<br><br>
+				<label for="tarjeta">
+					<span>tarjeta:</span>
+				</label>
+				<input id="tarjeta" name="tarjeta" type="text">
+				<br><br>
+				<input type="submit"  value="Enviar">
+			</form>-->
 				<fieldset>
 					<legend> <b> Persona </b> </legend>
 					<div id="iconousuario">
 						<img src="../imagenes/usuarioupload.png" class="iconousuario" alt="Usuario"><br>
 						<input type="file" name="pic" id="pic">
 					</div>
+					<label for="username"><span>Username:</span></label>
+					<input type="text" name="username" placeholder="Pepe17" id="username"><br>
 
-					<label for="nombre">Nombre</label>
+					<label for="nombre"><span>Nombre:</span></label>
 					<input type="text" name="nombre" placeholder="Pepe" id="nombre"><br>
 
-					<label for="apellido">Apellido</label>
+					<label for="apellido"><span>Apellido:</span></label>
 					<input type="text" name="apellido" placeholder="Gonzalez" id="apellido"><br>
-					
-					<label for="email">Email</label>
-					<input type="text" name="email" placeholder="pepe@mail.com" id="email"><br>
 
-					<label for="email2">Tel&eacute;fono</label>
-					<input type="text" name="email2" placeholder="pepe@mail.com" id="email2"><br>
+					<label for="correo"><span>Correo electrónico:</span></label>
+					<input type="text" name="correo" placeholder="pepe@mail.com" id="correo"><br>
 
 					<label for="fechanacimiento">Fecha de nacimiento</label>
 					<input type="date" name="fechanacimiento" id="fechanacimiento"><br>
 
-					<label for="contrasena">Contrase&#241;a</label>
+					<label for="contrasena2">Contrase&#241;a</label>
+					<input type="password" name="contrasena2" placeholder="********" id="contrasena2"><br>
+
+					<label for="contrasena2">ConfirmeContrase&#241;a</label>
 					<input type="password" name="contrasena" placeholder="********" id="contrasena"><br>
 
-					<label for="contrasena2">Email</label>
-					<input type="password" name="contrasena2" placeholder="********" id="contrasena2"><br>
+					<label for="tarjeta"><span>Tarjeta:</span></label>
+					<input type="text" name="tarjeta" placeholder="1112223334" id="tarjeta"><br>
+
+
 				</fieldset>
 
-				<fieldset>
+<!--				<fieldset>
 					<legend> <b> Preferencias </b> </legend>
 					<b>Seleccione sus preferencias:</b><br>
 					<input type="checkbox" name="preferencias" value="preferencias" id="Accion"> <label>Acción y aventuras</label><br>
@@ -64,7 +95,7 @@
 					<input type="checkbox" name="preferencias" value="preferencias" id="Terror"> <label>Terror</label><br>
 				</fieldset>
 
-				<fieldset>
+			<fieldset>
 					<legend> <b> Domicilio </b> </legend>
 					<label for="calle">Calle</label>
 					<input type="text" name="calle" placeholder="de la Castellana" id="calle">><br>
@@ -106,9 +137,9 @@
 					<input type="radio" name="banco" value="tarjeta" id="MasterCard"> <label>MasterCard</label><br>
 					<input type="radio" name="banco" value="tarjeta" id="AmEx"> <label>American Express</label><br>
 					<input type="radio" name="banco" value="tarjeta" id="Diners"> <label>Diners Club</label><br>
-				</fieldset>
+				</fieldset>-->
 				<br>
-				<span id="submit"><input type="submit" value="Enviar" name="enviar"></span>
+				<input id="submit" type="submit" value="Enviar" name="submit">
 			</form>
 		</div>
 	</div>
