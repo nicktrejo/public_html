@@ -36,30 +36,21 @@
 					{% endif %}
 					<label for="nombre"><span>Nombre:</span></label>
 					<input type="text" name="nombre" placeholder="Pepe" id="nombre" required="required"><br>
-
 					<label for="apellido"><span>Apellido:</span></label>
 					<input type="text" name="apellido" placeholder="Gonzalez" id="apellido" required="required"><br>
-
 					<label for="correo"><span>Correo electrónico:</span></label>
 					<input type="text" name="correo" placeholder="pepe@mail.com" id="correo" required="required"><br>
-
 					<label for="fechanacimiento">Fecha de nacimiento</label>
 					<input type="date" name="fechanacimiento" id="fechanacimiento" required="required"><br>
-
 					<label for="contrasena">Contrase&#241;a</label>
 					<input type="password" name="contrasena" placeholder="********" id="contrasena" required="required"><br>
-					<tr><td></td><td>
 					<meter max="4" id="password-strength"></meter>
 					<span id="errorMessage"></span>
-					</td></tr>
 					<label for="contrasena2">ConfirmeContrase&#241;a</label>
 					<input type="password" name="contrasena2" placeholder="********" id="contrasena2" required="required"><br>
-					<tr><td></td><td>
 					<span id="confirmacionmensaje"></span>
-					</td></tr>
 					<label for="tarjeta"><span>Tarjeta:</span></label>
 					<input type="text" name="tarjeta" placeholder="1112223334" id="tarjeta"required="required"><br>
-
 					<input type="checkbox" id="Condiciones" name="Condiciones" required="required" /><label for="Condiciones">Acepta las <a href="{{ url_for('static', filename = 'media/others/pagina_condiciones.html') }}">condiciones y t&eacute;rminos de esta p&aacute;gina</a></label>
 
 				</fieldset>

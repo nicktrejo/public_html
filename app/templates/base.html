@@ -44,15 +44,18 @@
 		<nav>
 			<div >
 				<a href="{{ url_for('carrito') }}"></a><img src="imagenes/carro.png"  alt="carrito" id="carro">
-		    	</div>
+		    </div>
+
 			<a href="{{ url_for('carrito') }}" class="linksbotton"><button type="button"  onclick="carro">  Carrito  </button></a>
+			{%if user%}
+			<p id="button"> </p>
+			<a action={{url_for('logout')}} class="linksbotton"></a><button type="button"  onclick="Signout()">Salir</a></button>
+			{%else%}
 			<p id="button1"> </p>
 			<a href="{{ url_for('signin') }}"class="linksbotton"><button type="button" onclick="">Crea tu cuenta</button></a>
 			<p id="button"> </p>
 			<a href="{{ url_for('login') }}" class="linksbotton"><button type="button"  onclick= "">Identificate</button></a>
-			<p id="button"> </p>
-			<a href="" class="linksbotton"></a><button type="button"  onclick="Signout()">Salir</a></button>
-
+			{%endif%}
 			<ul id="lat">
 				<!-- TODO: agregar el link para que se muestren las películas de dicho genero-->
 				{% for genero in generos %}

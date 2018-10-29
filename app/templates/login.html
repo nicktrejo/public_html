@@ -1,10 +1,8 @@
 {% extends "base.html" %}
-
 <!--Titulo para cada página-->
 {% block title %}
 	Login
 {% endblock%}
-
 <!--Contenido propio de la página entre las llaves-->
 {% block content %}
 	<div class="bloquepeli">
@@ -21,20 +19,16 @@
 		</div>
 		<div class="contenido">
 			{% if wrong %}
-			<p class="red">Usuario o contraseña incorrectos</p>
+			<p>Usuario o contraseña incorrectos</p>
 			{% endif %}
 
-			<form action="/hello.wsgi/login/activate/" method="post">
+			<form action={{url_for('login_activate')}} method="post">
 				<fieldset>
 				<legend> <b> INICIAR SESION </b> </legend>
-
-
 					<label for="usuario">Usuario</label>
 					<input type="text" name="user" pattern="[	A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{1,20}" placeholder="Nombre de usuario" id="usuario" required="required"><br>
-
 					<label for="contrasena">Contrase&#241;a</label>
 					<input type="password" name="contrasena" placeholder="********" id="contrasena" required="required"><br>
-
 				</fieldset>
 
 				<br>
