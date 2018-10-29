@@ -18,16 +18,10 @@
 			<ul id="hmenu">
 				 <li><a href="#">CATEGORIAS </a>
 					<ul class="sub-menu">
-						  <li><a href="#">   Acci&oacute;n y aventuras  </a></li>
-						  <li><a href="#">  Animaci&oacute;n </a></li>
-						  <li><a href="#">  Ciencia ficci&oacute;n y fantas&iacute;a</a></li>
-						  <li><a href="#">  Cine familiar </a></li>
-						  <li><a href="#">  Comedia </a></li>
-						  <li><a href="#">  Documentales </a></li>
-						  <li><a href="#">  Drama </a></li>
-						  <li><a href="#">  Romantice </a></li>
-						  <li><a href="#">  Terror </a></li>
-						  <li><a href="#">  Varias </a></li>
+					<!-- TODO: agregar el link para que se muestren las películas de dicho genero-->
+						{% for genero in generos %}
+							<li><a href="#">   {{ genero }}  </a></li>
+						{% endfor %}
 					</ul>
 				</li>
 				<li><a href="#">    FORMATO </a>
@@ -50,7 +44,7 @@
 	<main>
 		<nav>
 			<div >
-				<a href="{{ url_for('carrito') }}"></a><img src="imagenes/carro.png"  alt="carrito" id="carro">
+				<a href="{{ url_for('carrito') }}"></a><img src={{ url_for('static', filename='imagenes/carro.png') }}  alt="carrito" id="carro">
 		    	</div>
 			<a href="{{ url_for('carrito') }}" class="linksbotton"><button type="button"  onclick="carro">  Carrito  </button></a>
 			<p id="button1"> </p>
@@ -62,16 +56,10 @@
 
 			<ul id="lat">
 				<li><a href="#"> NOVEDADES </a></li>
-				<li><a href="#"> Acci&oacute;n y aventuras </a></li>
-				<li><a href="#"> Animaci&oacute;n </a></li>
-				<li><a href="#"> Ciencia ficci&oacute;n y fantas&iacute;a </a></li>
-				<li><a href="#"> Cine familiar </a></li>
-				<li><a href="#"> Comedia </a></li>
-				<li><a href="#"> Documentales </a></li>
-				<li><a href="#"> Drama </a></li>
-				<li><a href="#"> Romantice </a></li>
-				<li><a href="#"> Terror </a></li>
-				<li><a href="#"> Varias </a></li>
+			<!-- TODO: agregar el link para que se muestren las películas de dicho genero-->
+				{% for genero in generos %}
+					<li><a href="#">   {{ genero }}  </a></li>
+				{% endfor %}
 			</ul>
 		</nav>
 
