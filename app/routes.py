@@ -5,16 +5,24 @@ import os
 import sys
 import csv
 
+# Abre el catalogue.json como solo lectura (r) y lo pasa
+catalogue_data = open(os.path.join(app.root_path,'catalogue/catalogue.json'), "r").read()
+catalogue = json.loads(catalogue_data)
+
+# Lista de los generos ordenados alfabeticamente y sin repetir
+# Se usa la lista auxiliar que luego se elimina
+generos_aux=[]
+for item in catalogue["peliculas"]:
+    generos_aux.append(item["genero"])
+generos=list(set(generos_aux))
+generos.sort()
+del generos_aux
 
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
 #     print >>sys.stderr, url_for('static', filename='estilo.css')
-# Abre el catalogue.json como solo lectura (r) y lo pasa
-    catalogue_data = open(os.path.join(app.root_path,'catalogue/catalogue.json'), "r").read()
-    catalogue = json.loads(catalogue_data)
-
-    return render_template('index.html', title = "Home", catalogue=catalogue)
+    return render_template('index.html', title = "Home", catalogue=catalogue, generos=generos)
 
 
 @app.route('/carrito')
@@ -64,14 +72,13 @@ def signin():
 
 @app.route('/peli/<movie>')
 def peli(movie):
-    catalogue_data = open(os.path.join(app.root_path,'catalogue/catalogue.json'), "r").read()
-    catalogue = json.loads(catalogue_data)
+# con esto se genera la pagina de cualquier pelicula contenida en el cataogo
     pelicula=movie
-    pelicula_num=0
-    for i, item in enumerate(catalogue["peliculas"], 1):
+    pelicula_num=-1
+    for i, item in enumerate(catalogue["peliculas"], 0):
         if item["sigla"]==pelicula:
             pelicula_num=i
-    if not pelicula_num:
+    if pelicula_num is -1:
         return "Pelicula no encontrada"
     else:
-        return render_template('pelicula.html', pelicula=catalogue["peliculas"][pelicula_num-1])
+        return render_template('pelicula.html', pelicula=catalogue["peliculas"][pelicula_num])
