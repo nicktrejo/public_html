@@ -1,11 +1,8 @@
 from app import app
-from flask import render_template, flash, request, url_for, redirect, session, g
+from flask import Flask, render_template, request, url_for, redirect, session
 import json
 import os
-import sys
-import csv
 
-# Abre el catalogue.json como solo lectura (r) y lo pasa
 catalogue_data = open(os.path.join(app.root_path,'catalogue/catalogue.json'), "r").read()
 catalogue = json.loads(catalogue_data)
 
@@ -18,67 +15,128 @@ generos=list(set(generos_aux))
 generos.sort()
 del generos_aux
 
+def check_password(path,contrasena):
+    user_data = open(path, "r").read()
+    user_data = json.loads(user_data)
+    m = md5()
+    m.update(contrasena)
+    contrasena = m.hexdigest()
+    if(user_data["contrasena"] == contrasena):
+        session["user"] = user_data["user"]
+        session["correo"] = user_data["correo"]
+        session["saldo"] = user_data["saldo"]
+        return True
+    return False
+
+def createuserlogin(user, contrasena, correo, tarjeta, path):
+    m = md5()
+    m.update(contrasena)
+    contrasena = m.hexdigest()
+    os.mkdir(path)
+    dic={"contrasena": contrasena,\
+        "user": user,\
+        "correo": correo,\
+        "nombre": nombre,\
+        "apellido": apellido,\
+        "tarjeta": tarjeta,\
+        "saldo": randint(0,100)}
+    open(path+"datos.dat", "w").write(json.dumps(dic))
+    session["user"] = dic["user"]
+    session["correo"] = dic["correo"]
+    session["saldo"] = dic["saldo"]
+
 @app.route('/')
-@app.route('/index', methods=['GET', 'POST'])
+@app.route('/index/', methods=['GET', 'POST'])
 def index():
-#     print >>sys.stderr, url_for('static', filename='estilo.css')
-    return render_template('index.html', title = "Home", catalogue=catalogue, generos=generos)
+    if "user" in session:
+        user=session["user"]
+    else:
+        user = None
+    return render_template('index.html', user=user, catalogue=catalogue, generos=generos)
 
 
-@app.route('/carrito')
+@app.route('/carrito/')
 def carrito():
-   return render_template('carrito.html', title = "Carritoo")
+    if "user" in session:
+        user=session["user"]
+    else:
+        user = None
+    return render_template('carrito.html', title = "Carrito", user=user, generos=generos)
 
 
 @app.route('/historial')
 def historial():
-   return render_template('historial.html', title = "Historial")
+   return render_template('historial.html', title = "Historial", user=user, generos=generos)
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login/')
 def login():
-    if 'usuario' in request.form:
-        session.pop('usuario', None)
-        # aqui se deberia validar con fichero .dat del usuario
-        if request.form['usuario'] == 'user'and request.form['contrasena']=='password':
-            session['usuario'] = request.form['usuario']
-            session['login'] = True
-            # se puede usar request.referrer para volver a la pagina desde la que se hizo login
-            return redirect(url_for('index'))
-        else:
-            return render_template('login.html', title = "Log In")
+    if "user" in session:
+        return index()
     else:
-        # se puede guardar la pagina desde la que se invoca
-#       session['url_origen']=request.referrer
-        # print a error.log de Apache si se ejecuta bajo mod_wsgi
-        print >>sys.stderr, request.referrer
-        return render_template('login.html', title = "Log In")
+        user = None
+    return render_template('login.html', title = "Log In", user=user, generos=generos)
 
-@app.route('/logout')
+@app.route('/login/activate/', methods=['POST'])
+def login_activate():
+    if "user" in session:
+        return index()
+    user= request.form['user']
+    contrasena=request.form['contrasena']
+    path = os.path.dirname(__file__)+"/usuarios/"+user+"/datos.dat/"
+    if(os.path.exist(path)):
+        if(check_password(path,contrasena)):
+            return index()
+    return render_template("login.html", wrong=True)
+
+@app.route('/logout/')
 def logout():
-    session['login']= False
-    return redirect(url_for('index'))
+    session.pop("user",None)
+    return index()
 
 
-@app.route('/signin', methods=['GET', 'POST'])
+@app.route('/signin/')
 def signin():
-        if 'username' in request.form:
-            nombre=request.form['username']
-            savetxt('data.dat',nombre)
-            return render_template('login.html', title = "Log In")
-        else:
-            print >>sys.stderr, request.referrer
-            return render_template('signin.html', title = "Sign In")
+    if "user" in session:
+        return index()
+    return render_template('signin.html', title = "Sign In", generos=generos)
+
+
+@app.route('/signin/activate/', methods=['GET', 'POST'])
+def signin_activate():
+    if "user" in request.form:
+        user=request.form['user']
+        contrasena=request.form['contrasena']
+        correo=request.form['correo']
+        tarjeta=request.form['tarjeta']
+        path = os.path.dirname(__file__)+ "/usuarios/"+user+"/"
+    if(os.path.exists(path)):
+        return render_template("signin.html", error=True)
+    createuserlogin(user, contrasena, correo, tarjeta, path)
+    return index()\
+
+#@app.route("/users/<userc>/")
+#def user_info(userc):
+#    if "user" in session:
+#       user = session["user"]
+#        correo = session["correo"]
+#        saldo = session["saldo"]
+#        if userc != user:
+#            return index()
+#    else:
+#        return index()
+#    return render_template("user-info.html",r
+#     user=user, correo=correo, saldo=saldo)
+
 
 @app.route('/peli/<movie>')
 def peli(movie):
-# con esto se genera la pagina de cualquier pelicula contenida en el cataogo
     pelicula=movie
-    pelicula_num=-1
-    for i, item in enumerate(catalogue["peliculas"], 0):
+    pelicula_num=0
+    for i, item in enumerate(catalogue["peliculas"], 1):
         if item["sigla"]==pelicula:
             pelicula_num=i
-    if pelicula_num is -1:
+    if not pelicula_num:
         return "Pelicula no encontrada"
     else:
-        return render_template('pelicula.html', pelicula=catalogue["peliculas"][pelicula_num])
+        return render_template('pelicula.html', pelicula=catalogue["peliculas"][pelicula_num-1])
