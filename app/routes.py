@@ -1,5 +1,7 @@
 from app import app
 from flask import Flask, render_template, request, url_for, redirect, session
+from random import shuffle, randint
+from hashlib import md5
 import json
 import os
 
@@ -15,6 +17,7 @@ generos=list(set(generos_aux))
 generos.sort()
 del generos_aux
 
+#Encriptacion contrasena en md5 y
 def check_password(path,contrasena):
     user_data = open(path, "r").read()
     user_data = json.loads(user_data)
@@ -23,26 +26,24 @@ def check_password(path,contrasena):
     contrasena = m.hexdigest()
     if(user_data["contrasena"] == contrasena):
         session["user"] = user_data["user"]
+        session["nombre"] = user_data["nombre"]
+        session["apellido"] = user_data["apellido"]
         session["correo"] = user_data["correo"]
         session["saldo"] = user_data["saldo"]
         return True
     return False
 
-def createuserlogin(user, contrasena, correo, tarjeta, path):
+def createuserlogin(user, contrasena, nombre, apellido, correo, tarjeta, path):
     m = md5()
     m.update(contrasena)
     contrasena = m.hexdigest()
     os.mkdir(path)
-    dic={"contrasena": contrasena,\
-        "user": user,\
-        "correo": correo,\
-        "nombre": nombre,\
-        "apellido": apellido,\
-        "tarjeta": tarjeta,\
-        "saldo": randint(0,100)}
+    dic={"contrasena": contrasena, "user": user, "correo": correo, "nombre": nombre, "apellido": apellido, "tarjeta": tarjeta, "saldo": randint(0,200)}
     open(path+"datos.dat", "w").write(json.dumps(dic))
     session["user"] = dic["user"]
     session["correo"] = dic["correo"]
+    session["nombre"] = dic["nombre"]
+    session["apellido"] = dic["apellido"]
     session["saldo"] = dic["saldo"]
 
 @app.route('/')
@@ -84,7 +85,7 @@ def login_activate():
     user= request.form['user']
     contrasena=request.form['contrasena']
     path = os.path.dirname(__file__)+"/usuarios/"+user+"/datos.dat/"
-    if(os.path.exist(path)):
+    if(os.path.exists(path)):
         if(check_password(path,contrasena)):
             return index()
     return render_template("login.html", wrong=True)
@@ -107,27 +108,15 @@ def signin_activate():
     if "user" in request.form:
         user=request.form['user']
         contrasena=request.form['contrasena']
+        nombre=request.form['nombre']
+        apellido=request.form['apellido']
         correo=request.form['correo']
         tarjeta=request.form['tarjeta']
         path = os.path.dirname(__file__)+ "/usuarios/"+user+"/"
-    if(os.path.exists(path)):
-        return render_template("signin.html", error=True)
-    createuserlogin(user, contrasena, correo, tarjeta, path)
-    return index()\
-
-#@app.route("/users/<userc>/")
-#def user_info(userc):
-#    if "user" in session:
-#       user = session["user"]
-#        correo = session["correo"]
-#        saldo = session["saldo"]
-#        if userc != user:
-#            return index()
-#    else:
-#        return index()
-#    return render_template("user-info.html",r
-#     user=user, correo=correo, saldo=saldo)
-
+        if(os.path.exists(path)):
+            return render_template("signin.html", error=True)
+        createuserlogin(user, contrasena, nombre, apellido, correo, tarjeta, path)
+        return index()
 
 @app.route('/peli/<movie>')
 def peli(movie):
@@ -139,4 +128,4 @@ def peli(movie):
     if not pelicula_num:
         return "Pelicula no encontrada"
     else:
-        return render_template('pelicula.html', pelicula=catalogue["peliculas"][pelicula_num-1])
+	return render_template('pelicula.html', pelicula=catalogue["peliculas"][pelicula_num-1])
