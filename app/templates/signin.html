@@ -10,7 +10,9 @@
 	<div class="bloquepeli">
 		<div class="cabecera">
 			<div>
+				<br>
 				<img src={{ url_for('static', filename='imagenes/usuario.png') }} class="topimg" alt="Carrito"/>
+				<br>
 			</div>
 			<br>
 			<br>
@@ -19,65 +21,46 @@
 			<br>
 			<br>
 		</div>
-		<div class="contenido">
-			<form onsubmit="return validar(this)">
-	<!--			<label for="username">
-					<span>username:</span>
-				</label>
-				<input id="username" name="username" type="text">
-				<br><br>
-				<label for="nombre">
-					<span>Nombre:</span>
-				</label>
-				<input id="nombre" name="nombre" type="text">
-				<br><br>
- 				<label for="apellido">
-					<span>apellido:</span>
-				</label>
- 				<input id="apellido" name="apellido" type="text">
-				<br><br>
-				<label for="correo">
-					<span>Correo electrónico:</span>
-				</label>
-				<input id="correo" name="correo" type="text">
-				<br><br>
-				<label for="tarjeta">
-					<span>tarjeta:</span>
-				</label>
-				<input id="tarjeta" name="tarjeta" type="text">
-				<br><br>
-				<input type="submit"  value="Enviar">
-			</form>-->
+		<div class="contenido"></div>
+			<form action={{url_for('signin_activate')}} method="post" onsubmit="return checkForm()">
 				<fieldset>
 					<legend> <b> Persona </b> </legend>
 					<div id="iconousuario">
 						<img src={{ url_for('static', filename='imagenes/usuarioupload.png') }} class="iconousuario" alt="Usuario"><br>
 						<input type="file" name="pic" id="pic">
 					</div>
-					<label for="username"><span>Username:</span></label>
-					<input type="text" name="username" placeholder="Pepe17" id="username"><br>
-
+					<label for="user"><span>Username:</span></label>
+					<input type="text" name="user" placeholder="Pepe17" id="user" required="required"><br>
+					{% if error %}
+						<p class="red">Este usuario ya existe</p>
+					{% endif %}
 					<label for="nombre"><span>Nombre:</span></label>
-					<input type="text" name="nombre" placeholder="Pepe" id="nombre"><br>
+					<input type="text" name="nombre" placeholder="Pepe" id="nombre" required="required"><br>
 
 					<label for="apellido"><span>Apellido:</span></label>
-					<input type="text" name="apellido" placeholder="Gonzalez" id="apellido"><br>
+					<input type="text" name="apellido" placeholder="Gonzalez" id="apellido" required="required"><br>
 
 					<label for="correo"><span>Correo electrónico:</span></label>
-					<input type="text" name="correo" placeholder="pepe@mail.com" id="correo"><br>
+					<input type="text" name="correo" placeholder="pepe@mail.com" id="correo" required="required"><br>
 
 					<label for="fechanacimiento">Fecha de nacimiento</label>
-					<input type="date" name="fechanacimiento" id="fechanacimiento"><br>
+					<input type="date" name="fechanacimiento" id="fechanacimiento" required="required"><br>
 
-					<label for="contrasena2">Contrase&#241;a</label>
-					<input type="password" name="contrasena2" placeholder="********" id="contrasena2"><br>
-
+					<label for="contrasena">Contrase&#241;a</label>
+					<input type="password" name="contrasena" placeholder="********" id="contrasena" required="required"><br>
+					<tr><td></td><td>
+					<meter max="4" id="password-strength"></meter>
+					<span id="errorMessage"></span>
+					</td></tr>
 					<label for="contrasena2">ConfirmeContrase&#241;a</label>
-					<input type="password" name="contrasena" placeholder="********" id="contrasena"><br>
-
+					<input type="password" name="contrasena2" placeholder="********" id="contrasena2" required="required"><br>
+					<tr><td></td><td>
+					<span id="confirmacionmensaje"></span>
+					</td></tr>
 					<label for="tarjeta"><span>Tarjeta:</span></label>
-					<input type="text" name="tarjeta" placeholder="1112223334" id="tarjeta"><br>
+					<input type="text" name="tarjeta" placeholder="1112223334" id="tarjeta"required="required"><br>
 
+					<input type="checkbox" id="Condiciones" name="Condiciones" required="required" /><label for="Condiciones">Acepta las <a href="{{ url_for('static', filename = 'media/others/pagina_condiciones.html') }}">condiciones y t&eacute;rminos de esta p&aacute;gina</a></label>
 
 				</fieldset>
 
@@ -132,6 +115,7 @@
 					<input type="radio" name="banco" value="tarjeta" id="AmEx"> <label>American Express</label><br>
 					<input type="radio" name="banco" value="tarjeta" id="Diners"> <label>Diners Club</label><br>
 				</fieldset>-->
+
 				<br>
 				<input id="submit" type="submit" value="Enviar" name="submit">
 			</form>

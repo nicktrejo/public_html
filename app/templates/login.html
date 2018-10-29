@@ -20,22 +20,28 @@
 			<br>
 		</div>
 		<div class="contenido">
-			<form>
+			{% if wrong %}
+			<p class="red">Usuario o contraseña incorrectos</p>
+			{% endif %}
+
+			<form action="/hello.wsgi/login/activate/" method="post">
 				<fieldset>
 				<legend> <b> INICIAR SESION </b> </legend>
-					
+
 
 					<label for="usuario">Usuario</label>
-					<input type="text" name="usuario" placeholder="Nombre de usuario" id="usuario"><br>
+					<input type="text" name="user" pattern="[	A-Za-z0-9ñÑáéíóúÁÉÍÓÚ]{1,20}" placeholder="Nombre de usuario" id="usuario" required="required"><br>
 
 					<label for="contrasena">Contrase&#241;a</label>
-					<input type="password" name="contrasena" placeholder="********" id="contrasena"><br>
+					<input type="password" name="contrasena" placeholder="********" id="contrasena" required="required"><br>
 
 				</fieldset>
 
 				<br>
 				<span id="submit"><input type="submit" value="Enviar" name="enviar"></span>
+
 			</form>
 		</div>
+		<a href="/signin/">No tienes una cuenta ? Reg&iacute;strate aqu&iacute;</a>
 	</div>
 {% endblock %}
