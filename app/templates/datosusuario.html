@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+<!--Titulo para cada página-->
+{% block title %}
+	Login
+{% endblock%}
+<!--Contenido propio de la página entre las llaves-->
+{% block content %}
+	<div class="bloquepeli">
+		<div class="cabecera">
+
+			<br>
+			<br>
+			<h1>Datos de Usuario</h1>
+			<br>
+			<br>
+			<br>
+		</div>
+		<div class="contenido">
+				<fieldset>
+				<legend> <b> Datos  </b> </legend>
+				<h2>Nombre de usuario:</h3><p> {{ user }}</p>
+				<h2>Nombre:</h2><p> {{ nombre }}</p>
+				<h2>Apellido:</h2><p> {{ apellido }}</p>
+				<h2>Correo:</h2><p> {{ correo }}</p>
+				<h2>Tarjeta:</h2><p> {{ tarjeta }}</p>
+				<h2>Saldo:</h2><p> {{ saldo }}</p>
+
+				</fieldset>
+		</div>
+		
+	</div>
+{% endblock %}
