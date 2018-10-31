@@ -9,7 +9,7 @@ catalogue_data = open(os.path.join(app.root_path,'catalogue/catalogue.json'), "r
 catalogue = json.loads(catalogue_data)
 
 #TODO: cambiar esto a lo correcto (es de prueba)
-history_data = open('/home/nicolas/public_html/app/catalogue/historial_ejemplo.json', "r").read()
+history_data = open('/home/vane/public_html/app/catalogue/historial_ejemplo.json', "r").read()
 history = json.loads(history_data)
 
 # Lista de los generos ordenados alfabeticamente y sin repetir
