@@ -21,7 +21,7 @@
 			<br>
 			<br>
 		</div>
-		<div class="contenido"></div>
+		<div class="contenido">
 			<form onsubmit="return validar(this)" action={{url_for('signin_activate')}} method="post" >
 				<fieldset>
 					<legend> <b> Persona </b> </legend>
@@ -50,17 +50,14 @@
 
 						<label for="contrasena2">ConfirmeContrase&#241;a</label>
 						<input type="password" name="contrasena2" placeholder="********" id="contrasena2" required="required"><br>
-
 					</form>
-					<br>
+
 					<br>
 					<input type="checkbox" id="Condiciones" name="Condiciones" required="required" /><label for="Condiciones">Acepta las <a href="{{ url_for('static', filename = 'condiciones.html') }} " target="_blank">condiciones y t&eacute;rminos de esta p&aacute;gina</a></label>
-
-				</fieldset>
-
-				<br>
-				<input id="submit" type="submit" value="Enviar" name="submit">
+					<br>
+					<input id="submit" type="submit" value="Enviar" name="submit">
+					</fieldset>
 			</form>
 		</div>
-	</form>
+	</div>
 {% endblock %}
