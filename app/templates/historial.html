@@ -23,105 +23,22 @@
 
 <!--SECTION con las compras realizadas el último mes-->
 			<section id="ultimas">
-				<h2>Compras realizadas en el último mes</h2>
+				<h2>Compras realizadas:</h2>
 				<br>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/piratas.html"><img src="../imagenes/PDCST.jpg" alt="Piratas del Caribe" class="iconohistorial">Piratas del Caribe Mareas Misteriosas</a>
+				{%for i in index_historial%}
+					<div class="item">
+						<div class="pelicula">
+							<a href={{ url_for("peli", movie = catalogue["peliculas"][i]["sigla"])}}>
+								<img src={{ url_for('static', filename = catalogue["peliculas"][i]["poster"] ) }} alt={{ catalogue["peliculas"][i]["sigla"] }} class="iconohistorial">
+								{{ catalogue["peliculas"][i]["titulo"] }}
+							</a>
+						</div>
+						<div class="botones">
+							 <button type="button">Puntuar</button>
+							 <button type="button">Comentar</button>
+						</div>
 					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/harry.html"><img src="../imagenes/HPPF.jpg" alt="Harry Potter y la Piedra Filosofal" class="iconohistorial" >Harry Potter y la Piedra Filosofal</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/dumbo.html"><img src="../imagenes/D.jpg" alt="Dumbo" class="iconohistorial">Dumbo</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/peter.html"><img src="../imagenes/PP.jpg" alt="Peter Pan y los niños perdidos" class="iconohistorial">Peter Pan y los niños perdidos</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/piratas.html"><img src="../imagenes/PDCST.jpg" alt="Piratas del Caribe " class="iconohistorial">Piratas del Caribe Mareas Misteriosas</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-			</section>
-
-<!--SECTION con las compras realizadas el anteriormente-->
-			<section id="anteriores">
-				<h2>Compras realizadas en el pasado</h2>
-				<br>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/piratas.html"><img src="../imagenes/PDCST.jpg" alt="Piratas del Caribe" class="iconohistorial">Piratas del Caribe Mareas Misteriosas</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/harry.html"><img src="../imagenes/HPPF.jpg" alt="Harry Potter y la Piedra Filosofal" class="iconohistorial" >Harry Potter y la Piedra Filosofal</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/dumbo.html"><img src="../imagenes/D.jpg" alt="Dumbo" class="iconohistorial">Dumbo</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/peter.html"><img src="../imagenes/PP.jpg" alt="Peter Pan y los niños perdidos" class="iconohistorial">Peter Pan y los niños perdidos</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-				<div class="item">
-					<div class="pelicula">
-						<a href="../pag/piratas.html"><img src="../imagenes/PDCST.jpg" alt="Piratas del Caribe " class="iconohistorial">Piratas del Caribe Mareas Misteriosas</a>
-					</div>
-					<div class="botones">
-						 <button type="button">Puntuar</button>
-						 <button type="button">Comentar</button>
-					</div>
-				</div>
-			</section>
+				{%endfor%}
 		</div>
 	</div>
 {% endblock %}

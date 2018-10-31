@@ -10,7 +10,7 @@
 	<div class="bloquepeli">
 		<div id="pelicula">
 			<div class="pimagen">
-				<img src={{ pelicula["poster"] }} alt={{ pelicula["sigla"] }}>
+				<img src={{ url_for('static', filename = pelicula["poster"] ) }} alt={{ pelicula["sigla"] }}>
 			</div>
 			<div id="pdetalle">
 				<h1> {{ pelicula["titulo"] }} </h1>
@@ -27,7 +27,7 @@
 				</ul>
 				<div class="precio">
 					{{ pelicula["precio"] }}€ - {{ pelicula["formato"] }}
-					<p> <button type="button">Añadir al carrito</button></p>
+					<p> <button type="button" method="POST">Añadir al carrito</button></p>
 				</div>
 			</div>
 		</div>

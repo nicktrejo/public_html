@@ -16,7 +16,7 @@
 		<div class="column">
 			<h4> {{ item["titulo"] }}</h4>
 			<a href={{ url_for("peli", movie = item["sigla"])}}>
-				<img src={{ url_for('static',filename=item['poster'])}} alt={{ item["sigla"] }} style="width: 100%" onclick="myFunction(this);" >
+				<img src={{ url_for('static',filename=item['poster'] ) }} alt={{ item["sigla"] }} style="width: 100%" onclick="myFunction(this);" >
 			</a>
 
 		</div>

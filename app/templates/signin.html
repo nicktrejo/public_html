@@ -32,7 +32,7 @@
 					<label for="user"><span>Username:</span></label>
 					<input type="text" name="user" placeholder="Pepe17" id="user" required="required"><br>
 					{% if error %}
-						<p class="red">Este usuario ya existe</p>
+						<p>Este usuario ya existe</p>
 					{% endif %}
 					<label for="nombre"><span>Nombre:</span></label>
 					<input type="text" name="nombre" placeholder="Pepe" id="nombre" required="required"><br>
@@ -40,8 +40,6 @@
 					<input type="text" name="apellido" placeholder="Gonzalez" id="apellido" required="required"><br>
 					<label for="correo"><span>Correo electrónico:</span></label>
 					<input type="text" name="correo" placeholder="pepe@mail.com" id="correo" required="required"><br>
-					<label for="fechanacimiento">Fecha de nacimiento</label>
-					<input type="date" name="fechanacimiento" id="fechanacimiento" required="required"><br>
 					<label for="contrasena">Contrase&#241;a</label>
 					<input type="password" name="contrasena" placeholder="********" id="contrasena" required="required"><br>
 					<meter max="4" id="password-strength"></meter>
