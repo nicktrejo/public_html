@@ -8,6 +8,10 @@ import os
 catalogue_data = open(os.path.join(app.root_path,'catalogue/catalogue.json'), "r").read()
 catalogue = json.loads(catalogue_data)
 
+#TODO: cambiar esto a lo correcto (es de prueba)
+history_data = open('/home/nicolas/public_html/app/catalogue/historial_ejemplo.json', "r").read()
+history = json.loads(history_data)
+
 # Lista de los generos ordenados alfabeticamente y sin repetir
 # Se usa la lista auxiliar que luego se elimina
 generos_aux=[]
@@ -16,6 +20,14 @@ for item in catalogue["peliculas"]:
 generos=list(set(generos_aux))
 generos.sort()
 del generos_aux
+
+#Dado la siga de la pelicula, quiero el indice correspondiente o -1 si no existe
+def indice_pelicula(catalogue=[], sigla=""):
+    i = -1
+    for i, pelicula in enumerate(catalogue["peliculas"], 0):
+        if sigla == pelicula["sigla"]:
+            return i
+    return i
 
 #Encriptacion contrasena en md5 y
 def check_password(path,contrasena):
@@ -28,8 +40,15 @@ def check_password(path,contrasena):
         session["user"] = user_data["user"]
         session["nombre"] = user_data["nombre"]
         session["apellido"] = user_data["apellido"]
+        session["tarjeta"] = user_data["tarjeta"]
         session["correo"] = user_data["correo"]
         session["saldo"] = user_data["saldo"]
+        # Prueba de carrito simulado, quitar las siguientes (5) lineas
+        session["carrito"] = [2]
+        session["carrito"] = [2]
+        auxil = session["carrito"]
+        auxil.append(3)
+        session["carrito"] = auxil
         return True
     return False
 
@@ -38,12 +57,13 @@ def createuserlogin(user, contrasena, nombre, apellido, correo, tarjeta, path):
     m.update(contrasena)
     contrasena = m.hexdigest()
     os.mkdir(path)
-    dic={"contrasena": contrasena, "user": user, "correo": correo, "nombre": nombre, "apellido": apellido, "tarjeta": tarjeta, "saldo": randint(0,200)}
+    dic={"contrasena": contrasena, "user": user, "correo": correo, "nombre": nombre, "apellido": apellido, "tarjeta": tarjeta, "saldo": randint(0,100)}
     open(path+"datos.dat", "w").write(json.dumps(dic))
     session["user"] = dic["user"]
     session["correo"] = dic["correo"]
     session["nombre"] = dic["nombre"]
     session["apellido"] = dic["apellido"]
+    session["tarjeta"] = dic["tarjeta"]
     session["saldo"] = dic["saldo"]
 
 @app.route('/')
@@ -67,7 +87,16 @@ def carrito():
 
 @app.route('/historial')
 def historial():
-   return render_template('historial.html', title = "Historial", user=user, generos=generos)
+    if "user" in session:
+        user=session["user"]
+    else:
+        user = None
+    # busca cuales son los indices de peliculas para las compras realizadas
+    # las peliculas que no encuentra, las ignora; y muestra las duplicadas
+    index_historial=[]
+    for compra in history["compras"]:
+        index_historial.append(indice_pelicula(catalogue,compra["sigla"]))
+    return render_template('historial.html', title = "Historial", user=user, generos=generos, catalogue=catalogue, index_historial=index_historial)
 
 
 @app.route('/login/')
@@ -84,7 +113,7 @@ def login_activate():
         return index()
     user= request.form['user']
     contrasena=request.form['contrasena']
-    path = os.path.dirname(__file__)+"/usuarios/"+user+"/datos.dat/"
+    path = os.path.dirname(__file__)+"/usuarios/"+user+"/datos.dat"
     if(os.path.exists(path)):
         if(check_password(path,contrasena)):
             return index()
@@ -92,7 +121,8 @@ def login_activate():
 
 @app.route('/logout/')
 def logout():
-    session.pop("user",None)
+    session.clear()
+#    session.pop("user",None)
     return index()
 
 
@@ -114,18 +144,52 @@ def signin_activate():
         tarjeta=request.form['tarjeta']
         path = os.path.dirname(__file__)+ "/usuarios/"+user+"/"
         if(os.path.exists(path)):
-            return render_template("signin.html", error=True)
+            return render_template("signin.html", error=True, generos=generos)
         createuserlogin(user, contrasena, nombre, apellido, correo, tarjeta, path)
         return index()
 
-@app.route('/peli/<movie>')
+# TODO: que se pueda agregar la peli al carrito
+@app.route('/peli/<movie>', methods=['GET', 'POST'])
 def peli(movie):
-    pelicula=movie
-    pelicula_num=0
-    for i, item in enumerate(catalogue["peliculas"], 1):
-        if item["sigla"]==pelicula:
-            pelicula_num=i
-    if not pelicula_num:
+    if "user" in session:
+        user = session["user"]
+    else:
+        user = None
+    pelicula = movie
+    pelicula_num = -1
+    for i, item in enumerate(catalogue["peliculas"], 0):
+        if item["sigla"] == pelicula:
+            pelicula_num = i
+    if pelicula_num == -1:
         return "Pelicula no encontrada"
     else:
-	return render_template('pelicula.html', pelicula=catalogue["peliculas"][pelicula_num-1])
+        return render_template('pelicula.html', pelicula=catalogue["peliculas"][pelicula_num], generos=generos, user=user,)
+
+# TODO: sacar esto que es de prueba
+@app.route('/session')
+def session_test():
+    if "carrito" in session:
+        return str(session["carrito"])
+    return "sin carrito"
+# print(session["user"], session["nombre"], session["apellido"], session["tarjeta"], session["correo"], session["saldo"], session["carrito"])
+
+@app.route('/categoria/<category>')
+def categoria(category):
+    if "user" in session:
+        user = session["user"]
+    else:
+        user = None
+    # busca cuales son los indices de peliculas para la categoria pedida
+    # TODO: muy mal
+    index_historial=[]
+    for compra in history["compras"]:
+        index_historial.append(indice_pelicula(catalogue,compra["sigla"]))
+    pelicula = movie
+    pelicula_num = -1
+    for i, item in enumerate(catalogue["peliculas"], 0):
+        if item["sigla"] == pelicula:
+            pelicula_num = i
+    if pelicula_num == -1:
+        return "Pelicula no encontrada"
+    else:
+        return render_template('categoria.html', pelicula=catalogue["peliculas"][pelicula_num], generos=generos, user=user,)
