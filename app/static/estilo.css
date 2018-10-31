@@ -447,3 +447,25 @@ footer {
 		text-align:center;
 		}
 /*-------FIN DEL REGISTRO-------*/
+
+
+register .corta{
+        font-weight:bold;
+        color:#FF0000;
+        font-size:larger;
+    }
+register .debil{
+        font-weight:bold;
+        color:orange;
+        font-size:larger;
+    }
+register .buena{
+        font-weight:bold;
+        color:#2D98F3;
+        font-size:larger;
+    }
+register .fuerte{
+        font-weight:bold;
+        color: limegreen;
+        font-size:larger;
+    }

@@ -1,12 +1,4 @@
-
-function Signin() {
-	document.getElementById("button1").innerHTML = "Bienvenido, XXXXX";
-}
-
-function Signout() {
-    document.getElementById("button1").innerHTML = "ADIOS" ;
-}
-
+/* onclick imagenes index , el color se hace mas opaco*/
 function myFunction(imgs) {
     var expandImg = document.getElementById("expandedImg");
     var imgText = document.getElementById("imgtext");
@@ -15,21 +7,18 @@ function myFunction(imgs) {
     expandImg.parentElement.style.display = "block";
 }
 
-function alerta() {
-    alert("bienvenido");
+/* tama;o username >=5 <10*/
+
+function validarUsername(user) {
+	return((user.trim().length >= 5) && (user.trim().length <=10) );
 }
-
-
-function validarUsername(username) {
-	return(username.trim().length >= 5);
-}
-
+/* tama;o nombre,apellido >=2 <12*/
 function validarNombre(nombre) {
-	return(nombre.trim().length >= 2);
+	return((nombre.trim().length >= 2)&&(nombre.trim().length <= 12));
 }
 
 function validarApellido(apellido) {
-	return(apellido.trim().length >= 2);
+	return((apellido.trim().length >= 2)&&(apellido.trim().length <= 12));
 }
 
 function validarCorreo(correo) {
@@ -38,34 +27,35 @@ function validarCorreo(correo) {
 }
 
 function validarTarjeta(tarjeta) {
-return( Number.isInteger(Number(tarjeta)) && (tarjeta.trim().length >= 10));
+return( Number.isInteger(Number(tarjeta)) && (tarjeta.trim().length = 10));
 }
 
 function validarContrasena(contrasena) {
-	return(contrasena.trim().length >= 5);
+	return(contrasena.trim().length >= 8);
+
 }
 
 function validar(formulario) {
 	var retorno = true;
 	var msj = "";
-	if(! validarUsername(formulario["username"].value))
+	if(! validarUsername(formulario["user"].value))
 	{
-		formulario["username"].focus();
+		formulario["user"].focus();
 		retorno = false;
-		msj += "Escriba al menos 5 caracteres en el campo \"Username\".";
+		msj += "Escriba al menos 5 caracteres en el campo \"User\".";
 	}
 	if(! validarNombre(formulario["nombre"].value))
 	{
 		formulario["nombre"].focus();
 		retorno = false;
-		msj += "Escriba al menos 2 caracteres en el campo \"Nombre\".";
+		msj += "Escriba entre 2 y 10 caracteres en el campo \"Nombre\".";
 	}
 
 	if(! validarApellido(formulario["apellido"].value))
 	{
 		formulario["apellido"].focus();
 		retorno = false;
-		msj += "Escriba al menos 2 caracteres en el campo \"Apellido\".";
+		msj += "Escriba entre 2 y 10  caracteres en el campo \"Apellido\".";
 	}
 
 
@@ -93,7 +83,7 @@ function validar(formulario) {
 	{
 		formulario["contrasena"].focus();
 		retorno = false;
-		msj += "el campo \"contrasena\" debe tener minimo 5 caracteres.";
+		msj += "el campo \"contrasena\" debe tener minimo 8 caracteres.";
 	}
 
 
@@ -101,4 +91,6 @@ function validar(formulario) {
 
 	return(retorno);
 }
+
+
 
