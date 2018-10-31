@@ -22,7 +22,7 @@
 			<br>
 		</div>
 		<div class="contenido"></div>
-			<form action={{url_for('signin_activate')}} method="post" onsubmit="return checkForm()">
+			<form onsubmit="return validar(this)" action={{url_for('signin_activate')}} method="post" >
 				<fieldset>
 					<legend> <b> Persona </b> </legend>
 					<div id="iconousuario">
@@ -40,74 +40,27 @@
 					<input type="text" name="apellido" placeholder="Gonzalez" id="apellido" required="required"><br>
 					<label for="correo"><span>Correo electrónico:</span></label>
 					<input type="text" name="correo" placeholder="pepe@mail.com" id="correo" required="required"><br>
-					<label for="contrasena">Contrase&#241;a</label>
-					<input type="password" name="contrasena" placeholder="********" id="contrasena" required="required"><br>
-					<meter max="4" id="password-strength"></meter>
-					<span id="errorMessage"></span>
-					<label for="contrasena2">ConfirmeContrase&#241;a</label>
-					<input type="password" name="contrasena2" placeholder="********" id="contrasena2" required="required"><br>
-					<span id="confirmacionmensaje"></span>
 					<label for="tarjeta"><span>Tarjeta:</span></label>
 					<input type="text" name="tarjeta" placeholder="1112223334" id="tarjeta"required="required"><br>
+					<form id="register" method="post">
+						<label for="contrasena">Contrase&#241;a</label>
+						<input type="password" autofocus="autofocus" name="contrasena" placeholder="********" id="contrasena" required="required"><br>
+
+						&nbsp;&nbsp;&nbsp;&nbsp;<span id="result"></span><br>
+
+						<label for="contrasena2">ConfirmeContrase&#241;a</label>
+						<input type="password" name="contrasena2" placeholder="********" id="contrasena2" required="required"><br>
+
+					</form>
+					<br>
+					<br>
 					<input type="checkbox" id="Condiciones" name="Condiciones" required="required" /><label for="Condiciones">Acepta las <a href="{{ url_for('static', filename = 'media/others/pagina_condiciones.html') }}">condiciones y t&eacute;rminos de esta p&aacute;gina</a></label>
 
 				</fieldset>
-
-<!--				<fieldset>
-					<legend> <b> Preferencias </b> </legend>
-					<b>Seleccione sus preferencias:</b><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="Accion"> <label>Acción y aventuras</label><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="Animación"> <label>Animación</label><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="ficción"> <label>Ciencia ficción y fantasía</label><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="familiar"> <label>Cine familiar</label><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="Comedia"> <label>Comedia</label><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="Documentales"> <label>Documentales</label><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="Drama"> <label>Drama</label><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="Romantice"> <label>Romantice</label><br>
-					<input type="checkbox" name="preferencias" value="preferencias" id="Terror"> <label>Terror</label><br>
-				</fieldset>
-			<fieldset>
-					<legend> <b> Domicilio </b> </legend>
-					<label for="calle">Calle</label>
-					<input type="text" name="calle" placeholder="de la Castellana" id="calle">><br>
-					<label for="altura">Numero</label>
-					<input type="number" name="altura" placeholder="123" id="altura"><br>
-					<label for="piso">Piso</label>
-					<input type="number" name="piso" placeholder="3" id="piso"><br>
-					<label for="codigopostal">Codigo Postal</label>
-					<input type="number" name="codigopostal" placeholder="78001" id="codigopostal"><br>
-					<label for="provincia">Provincia</label>
-					<select name="provincia" id="provincia">
-						<option value="">Seleccione...</option>
-						<option value="AL">Albacete</option>
-						<option value="AS">Asturias</option>
-						<option value="AV">Avila</option>
-						<option value="BA">Barcelona</option>
-						<option value="BU">Burgos</option>
-						<option value="CA">Cantabria</option>
-						<option value="CO">Cordoba</option>
-						<option value="GR">Granada</option>
-						<option value="LE">León</option>
-						<option value="MA">Madrid</option>
-						<option value="NA">Navarra</option>
-						<option value="SA">Salamanca</option>
-						<option value="TE">Tenerife</option>
-						<option value="VA">Valencia</option>
-						<option value="ZA">Zaragoza</option>
-					</select>
-				</fieldset>
-				<fieldset>
-					<legend> <b> Datos Bancarios </b> </legend>
-					<b>Seleccione su tarjeta:</b><br>
-					<input type="radio" name="banco" value="tarjeta" id="VISA"> <label>VISA</label><br>
-					<input type="radio" name="banco" value="tarjeta" id="MasterCard"> <label>MasterCard</label><br>
-					<input type="radio" name="banco" value="tarjeta" id="AmEx"> <label>American Express</label><br>
-					<input type="radio" name="banco" value="tarjeta" id="Diners"> <label>Diners Club</label><br>
-				</fieldset>-->
 
 				<br>
 				<input id="submit" type="submit" value="Enviar" name="submit">
 			</form>
 		</div>
-	</div>
+	</form>
 {% endblock %}
