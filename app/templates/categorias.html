@@ -2,34 +2,23 @@
 
 <!--Titulo para cada página-->
 {% block title %}
-    INDEX
+    {{ genero }}
 {% endblock%}
 
 <!--Contenido propio de la página entre las llaves-->
 {% block content %}
 
 	<div class="row">
-		<h1> {{ pelicula["genero"] }} </h1>
-		
-		
-		{% for item in catalogue["peliculas"] %}
+		<h1> {{ genero }} </h1>
+		{% for i in indices %}
 		<div class="column">
-			<h4> {{ item["titulo"] }}</h4>
-			<a href={{ url_for("peli", movie = item["sigla"])}}>
-				<img src={{ url_for('static',filename=item['poster'])}} alt={{ item["sigla"] }} style="width: 100%" onclick="myFunction(this);" >
-
+			<h4> {{ catalogue["peliculas"][i]["titulo"] }}</h4>
+			<a href={{ url_for("peli", movie = catalogue["peliculas"][i]["sigla"])}}>
+				<img src={{ url_for('static',filename = catalogue["peliculas"][i]['poster'])}} alt={{ catalogue["peliculas"][i]["sigla"] }} style="width: 100%" onclick="myFunction(this);" >
 			</a>
-
 		</div>
 		{% endfor %}
 
-
-
-	<!-- VANE, ¿para que es este container? Me parece que ya por default aparece oculto-->
-	
-	<div class="container">
-		<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-	<!-- <img id="expandedImg" style="width:100%"> -->
 		<div id="imgtext"></div>
 	</div>
 {% endblock %}

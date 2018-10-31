@@ -1,15 +1,18 @@
 from app import app
 from flask import Flask, render_template, request, url_for, redirect, session
-from random import shuffle, randint
+from random import randint
 from hashlib import md5
 import json
 import os
+import sys
+
+user=None
 
 catalogue_data = open(os.path.join(app.root_path,'catalogue/catalogue.json'), "r").read()
 catalogue = json.loads(catalogue_data)
 
 #TODO: cambiar esto a lo correcto (es de prueba)
-history_data = open('/home/vane/public_html/app/catalogue/historial_ejemplo.json', "r").read()
+history_data = open('/home/nicolas/public_html/app/catalogue/historial_ejemplo.json', "r").read()
 history = json.loads(history_data)
 
 # Lista de los generos ordenados alfabeticamente y sin repetir
@@ -21,13 +24,28 @@ generos=list(set(generos_aux))
 generos.sort()
 del generos_aux
 
+# Se hace una lista que corresponde a las peliculas de cada genero
+generos_index=[]
+for i, genero in enumerate(generos, 0):
+    generos_index.append([])
+    for j, pelicula in enumerate(catalogue["peliculas"], 0):
+        if genero == pelicula["genero"]:
+            generos_index[i].append(j)
+
 #Dado la siga de la pelicula, quiero el indice correspondiente o -1 si no existe
 def indice_pelicula(catalogue=[], sigla=""):
-    i = -1
     for i, pelicula in enumerate(catalogue["peliculas"], 0):
         if sigla == pelicula["sigla"]:
             return i
-    return i
+    return -1
+
+#Dado un string de busqueda, quiero un array con los indices correspondiente o array vacio si no existe
+def indices_busqueda(catalogue=[], q=""):
+    q_index = []
+    for i, pelicula in enumerate(catalogue["peliculas"], 0):
+        if q == pelicula["titulo"]:
+            q_index.append(i)
+    return q_index
 
 #Encriptacion contrasena en md5 y
 def check_password(path,contrasena):
@@ -66,31 +84,30 @@ def createuserlogin(user, contrasena, nombre, apellido, correo, tarjeta, path):
     session["tarjeta"] = dic["tarjeta"]
     session["saldo"] = dic["saldo"]
 
-@app.route('/')
-@app.route('/index/', methods=['GET', 'POST'])
-def index():
+@app.before_request
+def before_request():
+    global user
     if "user" in session:
-        user=session["user"]
+        user = session["user"]
     else:
         user = None
+
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index/', methods=['GET', 'POST'])
+def index():
+    if "q" in request.args:
+        q_index = indices_busqueda(catalogue, request.args["q"])
+        return str(q_index)
     return render_template('index.html', user=user, catalogue=catalogue, generos=generos)
 
 
-@app.route('/carrito/')
+@app.route('/carrito')
 def carrito():
-    if "user" in session:
-        user=session["user"]
-    else:
-        user = None
     return render_template('carrito.html', title = "Carrito", user=user, generos=generos)
 
 
 @app.route('/historial')
 def historial():
-    if "user" in session:
-        user=session["user"]
-    else:
-        user = None
     # busca cuales son los indices de peliculas para las compras realizadas
     # las peliculas que no encuentra, las ignora; y muestra las duplicadas
     index_historial=[]
@@ -116,6 +133,7 @@ def login_activate():
     path = os.path.dirname(__file__)+"/usuarios/"+user+"/datos.dat"
     if(os.path.exists(path)):
         if(check_password(path,contrasena)):
+            before_request()
             return index()
     return render_template("login.html", wrong=True)
 
@@ -123,6 +141,7 @@ def login_activate():
 def logout():
     session.clear()
 #    session.pop("user",None)
+    before_request()
     return index()
 
 
@@ -146,6 +165,7 @@ def signin_activate():
         if(os.path.exists(path)):
             return render_template("signin.html", error=True, generos=generos)
         createuserlogin(user, contrasena, nombre, apellido, correo, tarjeta, path)
+        before_request()
         return index()
 
 # TODO: que se pueda agregar la peli al carrito
@@ -175,12 +195,22 @@ def session_test():
 
 @app.route('/categoria/<category>')
 def categoria(category):
-    if "user" in session:
-        user = session["user"]
-    else:
-        user = None
-    # busca cuales son los indices de peliculas para la categoria pedida
-    # TODO: muy mal
+    # Se buscan los indices de las peliculas para la categoria o sino no existe la categoria
+    indices=[]
+    try:
+        indices = generos_index[generos.index(category)]
+    except:
+        print >>sys.stderr, "Se ha pedido una categoria invalida"
+        return "Categoria no existe"
+#    return str(indices)
+#    index_categoria=[]
+#    categoria = category
+#    for i, pelicula in enumerate(catalogue["peliculas"], 0):
+#        if pelicula["genero"] == categoria:
+#            index_categoria.append(i)
+    return render_template('categorias.html', catalogue=catalogue, indices=indices, generos=generos, genero=category, user=user,)
+    return str(index_categoria)
+    # LO DE ABAJO SE PUEDE QUITAR TAL VEZ
     index_historial=[]
     for compra in history["compras"]:
         index_historial.append(indice_pelicula(catalogue,compra["sigla"]))
@@ -192,4 +222,4 @@ def categoria(category):
     if pelicula_num == -1:
         return "Pelicula no encontrada"
     else:
-        return render_template('categoria.html', pelicula=catalogue["peliculas"][pelicula_num], generos=generos, user=user,)
+        return render_template('categoria.html', pelicula=catalogue["peliculas"][pelicula_num], generos=category, user=user,)

@@ -9,7 +9,6 @@
 	<script type="text/javascript" src={{ url_for('static', filename='funcion.js') }}></script>
 	<script type="text/javascript" src={{ url_for('static', filename='controlcontrasena.js') }}></script>
 	<script type="text/javascript" src={{ url_for('static', filename='iguales.js') }}></script>
-
 </head>
 
 <body>
@@ -19,15 +18,15 @@
 		</div>
 		<div id=menu-wrapper>
 			<ul id="hmenu">
-				 <li><a href="#">CATEGORIAS </a>
+				 <li><a href="#"> CATEGORIAS </a>
 					<ul class="sub-menu">
 						<!-- TODO: agregar el link para que se muestren las películas de dicho genero-->
 						{% for genero in generos %}
-							<li><a href="#">   {{ genero }}  </a></li>
+							<li><a href={{ url_for('categoria',category=genero) }}>   {{ genero }}  </a></li>
 						{% endfor %}
 					</ul>
 				</li>
-				<li><a href="#">    FORMATO </a>
+				<li><a href="#"> FORMATO </a>
 					<ul class="sub-menu">
 					<li><a href="#">DVD</a> </li>
 					<li><a href="#">BLUE - RAY</a> </li>
@@ -39,7 +38,12 @@
 					<li><a href="#">    Acerca de</a> </li>
 					</ul>
 			    </li>
-				<li><input type="text" placeholder="Buscar" name="Buscar"></li>
+				<li>
+					<form method="get">
+						<input type="search" placeholder="Buscar" name="q">
+						<input type="submit" value="Buscar">
+					</form>
+				</li>
 			</ul>
 	     </div>
 	</header>
@@ -64,9 +68,8 @@
 			<a href="{{ url_for('login') }}" class="linksbotton"><button type="button"  onclick= "">Identificate</button></a>
 			{%endif%}
 			<ul id="lat">
-				<!-- TODO: agregar el link para que se muestren las películas de dicho genero-->
 				{% for genero in generos %}
-					<li><a href="#">   {{ genero }}  </a></li>
+					<li><a href={{ url_for('categoria',category=genero) }}>   {{ genero }}  </a></li>
 				{% endfor %}
 			</ul>
 		</nav>

@@ -1,0 +1,33 @@
+{
+	"compras":
+	[
+ 		{
+			"sigla": "harry4",
+			"fecha": "01/02/2018"
+		},
+ 		{
+			"sigla": "harry3",
+			"fecha": "01/04/2018"
+		},
+ 		{
+			"sigla": "malefica",
+			"fecha": "06/06/2018"
+		},
+ 		{
+			"sigla": "harry4",
+			"fecha": "01/02/2015"
+		},
+ 		{
+			"sigla": "harry4",
+			"fecha": "01/02/2015"
+		},
+ 		{
+			"sigla": "harry20",
+			"fecha": "01/02/2015"
+		},
+ 		{
+			"sigla": "aro",
+			"fecha": "01/02/2015"
+		}
+		] 
+}
